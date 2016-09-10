@@ -1,0 +1,14 @@
+** Drc report for C:\Users\John\Documents\Products\Travis\EV_DAQ_Unit\EV_DAQ_Unit.kicad_pcb **
+** Created on  **
+
+** Found 0 DRC errors **
+
+** Found 2 unconnected pads **
+ErrType(2): Unconnected pads
+    @ (5.7524 in,2.0050 in): Pad 2 on B.Cu, Non-copper of C8 net GNDD
+    @ (5.7450 in,2.2174 in): Pad 2 on B.Cu, Non-copper of C23
+ErrType(2): Unconnected pads
+    @ (7.0950 in,1.9100 in): Pad 5 on F.Cu, B.Cu, Internal, Non-copper of P4 net USB_SHIELD
+    @ (7.5674 in,1.9100 in): Pad 5 on F.Cu, B.Cu, Internal, Non-copper of P4
+
+** End of Report **
