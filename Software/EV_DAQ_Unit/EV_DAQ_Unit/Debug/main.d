@@ -10,7 +10,9 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././config.h .././gpio.h .././i2c.h
+ .././gpio.h .././i2c.h .././adc.h .././uart.h .././timer.h .././lcd.h \
+ .././ftdi.h .././hall_effect.h .././pushbuttons.h .././load_cell.h \
+ .././leds.h .././config.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -34,8 +36,26 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-.././config.h:
-
 .././gpio.h:
 
 .././i2c.h:
+
+.././adc.h:
+
+.././uart.h:
+
+.././timer.h:
+
+.././lcd.h:
+
+.././ftdi.h:
+
+.././hall_effect.h:
+
+.././pushbuttons.h:
+
+.././load_cell.h:
+
+.././leds.h:
+
+.././config.h:

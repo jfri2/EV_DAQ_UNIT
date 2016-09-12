@@ -25,6 +25,8 @@ extern "C" {
 #include "ftdi.h"
 #include "hall_effect.h"
 #include "pushbuttons.h"
+#include "load_cell.h"
+#include "leds.h"
 
 #ifdef __cplusplus
 }
