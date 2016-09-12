@@ -47,7 +47,7 @@ uint8_t i2c1_tx(uint8_t i2c_event) {
             break;
     }
     while (!(TWCR1 & (1 << TWINT))); // Wait for current request to process
-    return(TWSR1 & 0b11111000);     // Return only status bits in status reg
+    return(TWSR1 & I2C_STATUS_REG_MASK);     // Return only status bits in status reg
 }
 
 /*!
@@ -59,19 +59,18 @@ uint8_t i2c1_tx(uint8_t i2c_event) {
 */
 uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2c_bytes) {
     uint8_t i2c_status = 0;
-    uint8_t i2c_fail_mask = 0x01;   // bit mask for all failure conditions so function will not return 0x00 during failure
     
     // I2C Start
     i2c_status = i2c1_tx(I2C_START);  // Start I2C Event
     if(i2c_status != I2C_STATUS_START) {
-        return(i2c_status | i2c_fail_mask);    // Break from function if I2C start condition isn't reflected in status reg
+        return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C start condition isn't reflected in status reg
     }   
      
     // I2C SLA+R/W
     TWDR1 = ((i2c_device_addr<<1) | I2C_WRITE);    // Set destination addr to device addr (7-bit, left justified), set I2C write condition
     i2c_status = i2c1_tx(I2C_DATA);
     if(i2c_status != I2C_STATUS_DATA_ACK) {
-        return(i2c_status | i2c_fail_mask);    // Break from function if I2C data ack isn't reflected in status reg
+        return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C data ack isn't reflected in status reg
     }
     
     // I2C Data Transfer
@@ -79,7 +78,7 @@ uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2
         TWDR1 = p_i2c_data[i];    // Load I2C data into register
         i2c_status = i2c1_tx(I2C_DATA);
         if(i2c_status != I2C_STATUS_DATA_ACK) {
-            return(i2c_status | i2c_fail_mask);    // Break from function if I2C data ack isn't reflected in status reg
+            return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C data ack isn't reflected in status reg
         }
     }    
     
@@ -99,19 +98,18 @@ uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2
 */
 uint8_t i2c1_read(uint8_t i2c_device_addr, uint8_t *p_i2c_data_in, uint8_t *p_i2c_data_out, uint32_t num_i2c_bytes) {
     uint8_t i2c_status = 0;
-    uint8_t fail_mask = 0x01;   // bit mask for all failure conditions so function will not return 0x00 during failure
     
     // I2C Start
     i2c_status = i2c1_tx(I2C_START);  // Start I2C Event
     if(i2c_status != I2C_STATUS_START) {
-        return(i2c_status | fail_mask);    // Break from function if I2C start condition isn't reflected in status reg
+        return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C start condition isn't reflected in status reg
     }
     
     // I2C SLA+R/W
     TWDR1 = ((i2c_device_addr<<1) | I2C_READ);    // Set destination addr to device addr (7-bit, left justified), set I2C read condition
     i2c_status = i2c1_tx(I2C_DATA);
     if(i2c_status != I2C_STATUS_DATA_ACK) {
-        return(i2c_status | fail_mask);    // Break from function if I2C data ack isn't reflected in status reg
+        return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C data ack isn't reflected in status reg
     }
     
     // I2C Data Transfer
@@ -119,7 +117,7 @@ uint8_t i2c1_read(uint8_t i2c_device_addr, uint8_t *p_i2c_data_in, uint8_t *p_i2
         TWDR1 = p_i2c_data_out[i];    // Load I2C data into register
         i2c_status = i2c1_tx(I2C_DATA);
         if(i2c_status != I2C_STATUS_DATA_ACK) {
-            return(i2c_status | fail_mask);    // Break from function if I2C data ack isn't reflected in status reg
+            return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C data ack isn't reflected in status reg
         }
         p_i2c_data_in[i] = TWDR1;   // Save data from I2C device
     }

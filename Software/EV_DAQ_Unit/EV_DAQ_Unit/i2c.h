@@ -23,6 +23,8 @@ extern "C" {
 #define I2C_READ    0x01
 
 // I2C Status Codes
+#define I2C_STATUS_REG_MASK     0xF8    // Status register mask
+#define I2C_STATUS_FAIL_MASK    0x01    // Bitmask so failures don't return 0x00 
 #define I2C_STATUS_START        0x08    // START condition has been transmitted
 #define I2C_STATUS_RSTART       0x10    // REPEATED START condition has been transmitted
 #define I2C_STATUS_SLAW_ACK     0x18    // SLA+W has been transmitted; ACK received
