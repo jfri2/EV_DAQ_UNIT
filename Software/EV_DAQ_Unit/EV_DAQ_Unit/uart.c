@@ -1,20 +1,55 @@
-/** @file module.c
+/** @file serial.c
 *
-* @brief A description of the module's purpose.
+* @brief Serial (STDIO over UART) driver for ATMEGA328PB
 *
 * @par
 * COPYRIGHT NOTICS: (c) 2016 John Fritz
 * All rights reserved.
 */
 
-#include "uart.h"
+#include "serial.h"
 
 /*!
-* @brief Identify the larger of two 8-bit numbers.
-* @param[in] num1    The first number to be compared.
-* @param[in] num2    The second number to be compared.
-* @return int8_t
+* @brief Initialize uart0
+* @param[in] uint32_t cpu_freq      Frequency of CPU in Hz
+* @param[in] uint32_t uart_baud     Desired UART baud rate
+* @return void
 */
-int8_t max8 (int8_t num1, int8_t num2) {
-	return ((num1 > num2) ? num1 : num2);
+void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud) {    
+    // Set UART0 to no parity, 8 data bits, 1 stop bit
+    // Enable Tx & Rx UART
+    UCSR0A = 0x00;
+    UCSR0B = 0x18;
+    UCSR0C = 0x06;
+    
+    // Set UART0 Baud Rate
+    UBRR0H = (((cpu_freq/uart_baud)/32)-1)>>8;  // Set baud rate div (upper register)
+    UBRR0L = (((cpu_freq/uart_baud)/32)-1);     // Set baud rate div (lower register)
+    
+    // Define STDIO Streams
+    stdout = &Avr_StdOut;   // Define output stream
+    stdin = &Avr_StdOut;    // Define input stream
+}
+
+/*!
+* @brief Write data over UART0
+* @param[in] uint8_t ch      Character to write
+* @param[in] FILE *stream   Pointer to stream location for stdio
+* @return int    
+*/
+static int uart0_stdio_write_byte(uint8_t ch, FILE *steam) {
+    while((UCSR0A & (1<<UDRE0)) == 0x00);    // Wait until tx buffer is empty
+    UDR0 = ch;      // Load tx buffer with character to send    
+    return(0);
+}
+
+/*!
+* @brief Read data over UART0
+* @param[in] FILE *stream   Pointer to stream location for stdio
+* @return int
+*/
+static int uart0_stdio_read_byte(FILE *stream) {
+    uint8_t ch;
+    while((UCSR0A & (1<<RXC0)) == 0x00);    // Wait until rx char flag is set
+    return(ch);
 }

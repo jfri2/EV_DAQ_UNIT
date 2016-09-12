@@ -1,4 +1,5 @@
 /** @file i2c.h
+*
 * @brief I2C (master) driver for ATMEGA328PB
 *
 * @par

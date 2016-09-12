@@ -1,4 +1,5 @@
 /** @file gpio.h
+*
 * @brief General Purpose Input Output (GPIO) driver for ATMEGA328PB
 *
 * @par
@@ -60,7 +61,7 @@ extern inline void set_bits(uint8_t reg_port, uint8_t bm_set) {
 }
 
 /*!
-* @brief Clear bits in a port to one (1)
+* @brief Clear bits in a port to zero (0)
 * @param[in] reg_port  Port to modify
 * @param[in] bm_set    Bits to clear in port (as a bitmask).
 * @return void

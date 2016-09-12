@@ -17,7 +17,7 @@ extern "C" {
 #include "gpio.h"
 #include "i2c.h"
 #include "adc.h"
-#include "uart.h"
+#include "serial.h"
 #include "timer.h"
 
 /* Project Libraries */
