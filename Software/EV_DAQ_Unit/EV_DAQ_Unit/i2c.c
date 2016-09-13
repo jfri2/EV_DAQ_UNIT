@@ -21,11 +21,12 @@ uint8_t i2c_calc_br_div(uint32_t cpu_freq, uint32_t i2c_freq) {
 
 /*!
 * @brief Initialize I2C 1 service
-* @param[in] i2c_freq   Desired I2C scl frequency
+* @param[in] cpu_freq   CPU frequency (usually F_CPU) in Hz
+* @param[in] i2c_freq   desired I2C frequency in Hz
 * @return void
 */
-void i2c1_init(uint32_t i2c_freq) {
-    TWBR1 = i2c_calc_br_div(F_CPU, i2c_freq);   // Set I2C SCL to correct value
+void i2c1_init(uint32_t cpu_freq, uint32_t i2c_freq) {
+    TWBR1 = i2c_calc_br_div(cpu_freq, i2c_freq);   // Set I2C SCL to correct value
     TWCR1 |= (1<<TWIE); // Enable TWI interrupt
 }
 
@@ -84,8 +85,7 @@ uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2
     
     // I2C Stop Condition
     i2c_status = i2c1_tx(I2C_STOP);
-        return(0);  // Return 0 if write operation was successful
-    }
+    return(0);  // Return 0 if write operation was successful
 }
 
 /*!

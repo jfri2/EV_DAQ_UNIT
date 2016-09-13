@@ -6,19 +6,13 @@
 * All rights reserved
 */
 
-#ifndef _LCD_H
-#define _LCD_H
+#ifndef lcd_h__
+#define lcd_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#include "config.h"
+#include <avr/io.h>
 #include "i2c.h"
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _MODULE_H */
+#endif // lcd_h__

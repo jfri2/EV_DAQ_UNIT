@@ -37,7 +37,18 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../main.c
+../adc.c \
+../ftdi.c \
+../gpio.c \
+../hall_effect.c \
+../i2c.c \
+../lcd.c \
+../leds.c \
+../load_cell.c \
+../main.c \
+../pushbuttons.c \
+../serial.c \
+../timer.c
 
 
 PREPROCESSING_SRCS += 
@@ -47,16 +58,60 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-main.o
+adc.o \
+ftdi.o \
+gpio.o \
+hall_effect.o \
+i2c.o \
+lcd.o \
+leds.o \
+load_cell.o \
+main.o \
+pushbuttons.o \
+serial.o \
+timer.o
 
 OBJS_AS_ARGS +=  \
-main.o
+adc.o \
+ftdi.o \
+gpio.o \
+hall_effect.o \
+i2c.o \
+lcd.o \
+leds.o \
+load_cell.o \
+main.o \
+pushbuttons.o \
+serial.o \
+timer.o
 
 C_DEPS +=  \
-main.d
+adc.d \
+ftdi.d \
+gpio.d \
+hall_effect.d \
+i2c.d \
+lcd.d \
+leds.d \
+load_cell.d \
+main.d \
+pushbuttons.d \
+serial.d \
+timer.d
 
 C_DEPS_AS_ARGS +=  \
-main.d
+adc.d \
+ftdi.d \
+gpio.d \
+hall_effect.d \
+i2c.d \
+lcd.d \
+leds.d \
+load_cell.d \
+main.d \
+pushbuttons.d \
+serial.d \
+timer.d
 
 OUTPUT_FILE_PATH +=EV_DAQ_Unit.elf
 
@@ -72,6 +127,28 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

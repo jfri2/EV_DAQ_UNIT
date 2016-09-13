@@ -37,7 +37,7 @@ void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud) {
 * @param[in] FILE *stream   Pointer to stream location for stdio
 * @return int    
 */
-static int uart0_stdio_write_byte(uint8_t ch, FILE *steam) {
+int uart0_stdio_write_byte(uint8_t ch, FILE *steam) {
     while((UCSR0A & (1<<UDRE0)) == 0x00);    // Wait until tx buffer is empty
     UDR0 = ch;      // Load tx buffer with character to send    
     return(0);
@@ -48,7 +48,7 @@ static int uart0_stdio_write_byte(uint8_t ch, FILE *steam) {
 * @param[in] FILE *stream   Pointer to stream location for stdio
 * @return int
 */
-static int uart0_stdio_read_byte(FILE *stream) {
+int uart0_stdio_read_byte(FILE *stream) {
     uint8_t ch;
     while((UCSR0A & (1<<RXC0)) == 0x00);    // Wait until rx char flag is set
     return(ch);

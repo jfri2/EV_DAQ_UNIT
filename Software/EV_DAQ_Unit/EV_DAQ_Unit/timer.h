@@ -7,17 +7,11 @@
 * All rights reserved
 */
 
-#ifndef _TIMER_H
-#define _TIMER_H
+#ifndef timer_h__
+#define timer_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <avr/io.h>
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _TIMER_H */
+#endif // timer_h__

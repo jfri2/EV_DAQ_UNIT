@@ -6,20 +6,14 @@
 * All rights reserved
 */
 
-#ifndef _HALL_EFFECT_H
-#define _HALL_EFFECT_H
+#ifndef hall_effect_h__
+#define hall_effect_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#include "config.h"
+#include <avr/io.h>
 #include "gpio.h"
 #include "timer.h"
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _HALL_EFFECT_H */
+#endif // hall_effect_h__

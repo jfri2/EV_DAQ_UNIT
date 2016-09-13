@@ -6,19 +6,13 @@
 * All rights reserved
 */
 
-#ifndef _LEDS_H
-#define _LEDS_H
+#ifndef leds_h__
+#define leds_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#include "config.h"
+#include <avr/io.h>
 #include "gpio.h"
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _LEDS_H */
+#endif // leds_h__

@@ -7,14 +7,10 @@
 * All rights reserved
 */
 
-#ifndef _GPIO_H
-#define _GPIO_H
+#ifndef gpio_h__
+#define gpio_h__
 
 #include <avr/io.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #if defined(PULLUP_ENABLE) || defined(PULLUP_DISABLE)
 #warning "PULLUP_ENABLE and PULLUP_DISABLE redefined"
@@ -29,7 +25,7 @@ extern "C" {
 * @param[in] bm_ddr    Bits to set as output in DDR (as a bitmask).
 * @return void
 */
-extern inline void ddr_output(uint8_t reg_ddr, uint8_t bm_ddr) {
+static inline void ddr_output(uint8_t reg_ddr, uint8_t bm_ddr) {
     reg_ddr |= bm_ddr;
 }
 
@@ -41,7 +37,7 @@ extern inline void ddr_output(uint8_t reg_ddr, uint8_t bm_ddr) {
 * @param[in] b_PullupEnable     Enables or disables pullups on input pin
 * @return void
 */
-extern inline void ddr_input(uint8_t reg_ddr, uint8_t reg_port, uint8_t bm_ddr, uint8_t b_PullupEnable) {
+static inline void ddr_input(uint8_t reg_ddr, uint8_t reg_port, uint8_t bm_ddr, uint8_t b_PullupEnable) {
     reg_ddr &= ~bm_ddr;
     if (b_PullupEnable != PULLUP_DISABLE) {
         reg_port |= bm_ddr;
@@ -56,7 +52,7 @@ extern inline void ddr_input(uint8_t reg_ddr, uint8_t reg_port, uint8_t bm_ddr, 
 * @param[in] bm_set    Bits to set in port (as a bitmask).
 * @return void
 */
-extern inline void set_bits(uint8_t reg_port, uint8_t bm_set) {
+static inline void set_bits(uint8_t reg_port, uint8_t bm_set) {
     reg_port |= bm_set;
 }
 
@@ -66,7 +62,7 @@ extern inline void set_bits(uint8_t reg_port, uint8_t bm_set) {
 * @param[in] bm_set    Bits to clear in port (as a bitmask).
 * @return void
 */
-extern inline void clear_bits(uint8_t reg_port, uint8_t bm_clear) {
+static inline void clear_bits(uint8_t reg_port, uint8_t bm_clear) {
     reg_port &= ~bm_clear;
 }
 
@@ -74,7 +70,7 @@ extern inline void clear_bits(uint8_t reg_port, uint8_t bm_clear) {
 * @brief Read PORTB pins
 * @return portValue Value of port read
 */
-extern inline uint8_t read_port_b(void) {
+static inline uint8_t read_port_b(void) {
     return(PINB);
 }
 
@@ -82,7 +78,7 @@ extern inline uint8_t read_port_b(void) {
 * @brief Read PORTC pins
 * @return uint8_t Value of PORTC
 */
-extern inline uint8_t read_port_c(void) {
+static inline uint8_t read_port_c(void) {
     return(PINC);
 }
 
@@ -90,12 +86,8 @@ extern inline uint8_t read_port_c(void) {
 * @brief Read PORTD pins
 * @return uint8_t Value of PORTD
 */
-extern inline uint8_t read_port_d(void) {
+static inline uint8_t read_port_d(void) {
     return(PIND);
 }
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _GPIO_H */
+#endif // gpio_h__

@@ -6,20 +6,14 @@
 * All rights reserved
 */
 
-#ifndef _FTDI_H
-#define _FTDI_H
+#ifndef ftdi_h__
+#define ftdi_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#include "config.h"
+#include <avr/io.h>
 #include "gpio.h"
-#include "uart.h"
+#include "serial.h"
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _FTDI_H */
+#endif // ftdi_h__

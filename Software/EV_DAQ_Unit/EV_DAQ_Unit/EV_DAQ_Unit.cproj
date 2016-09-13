@@ -118,8 +118,100 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="adc.c">
+      <SubType>compile</SubType>
+      <Link>adc.c</Link>
+    </Compile>
+    <Compile Include="adc.h">
+      <SubType>compile</SubType>
+      <Link>adc.h</Link>
+    </Compile>
+    <Compile Include="config.h">
+      <SubType>compile</SubType>
+      <Link>config.h</Link>
+    </Compile>
+    <Compile Include="ftdi.c">
+      <SubType>compile</SubType>
+      <Link>ftdi.c</Link>
+    </Compile>
+    <Compile Include="ftdi.h">
+      <SubType>compile</SubType>
+      <Link>ftdi.h</Link>
+    </Compile>
+    <Compile Include="gpio.c">
+      <SubType>compile</SubType>
+      <Link>gpio.c</Link>
+    </Compile>
+    <Compile Include="gpio.h">
+      <SubType>compile</SubType>
+      <Link>gpio.h</Link>
+    </Compile>
+    <Compile Include="hall_effect.c">
+      <SubType>compile</SubType>
+      <Link>hall_effect.c</Link>
+    </Compile>
+    <Compile Include="hall_effect.h">
+      <SubType>compile</SubType>
+      <Link>hall_effect.h</Link>
+    </Compile>
+    <Compile Include="i2c.c">
+      <SubType>compile</SubType>
+      <Link>i2c.c</Link>
+    </Compile>
+    <Compile Include="i2c.h">
+      <SubType>compile</SubType>
+      <Link>i2c.h</Link>
+    </Compile>
+    <Compile Include="lcd.c">
+      <SubType>compile</SubType>
+      <Link>lcd.c</Link>
+    </Compile>
+    <Compile Include="lcd.h">
+      <SubType>compile</SubType>
+      <Link>lcd.h</Link>
+    </Compile>
+    <Compile Include="leds.c">
+      <SubType>compile</SubType>
+      <Link>leds.c</Link>
+    </Compile>
+    <Compile Include="leds.h">
+      <SubType>compile</SubType>
+      <Link>leds.h</Link>
+    </Compile>
+    <Compile Include="load_cell.c">
+      <SubType>compile</SubType>
+      <Link>load_cell.c</Link>
+    </Compile>
+    <Compile Include="load_cell.h">
+      <SubType>compile</SubType>
+      <Link>load_cell.h</Link>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pushbuttons.c">
+      <SubType>compile</SubType>
+      <Link>pushbuttons.c</Link>
+    </Compile>
+    <Compile Include="pushbuttons.h">
+      <SubType>compile</SubType>
+      <Link>pushbuttons.h</Link>
+    </Compile>
+    <Compile Include="serial.c">
+      <SubType>compile</SubType>
+      <Link>serial.c</Link>
+    </Compile>
+    <Compile Include="serial.h">
+      <SubType>compile</SubType>
+      <Link>serial.h</Link>
+    </Compile>
+    <Compile Include="timer.c">
+      <SubType>compile</SubType>
+      <Link>timer.c</Link>
+    </Compile>
+    <Compile Include="timer.h">
+      <SubType>compile</SubType>
+      <Link>timer.h</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

@@ -6,19 +6,13 @@
 * All rights reserved
 */
 
-#ifndef _LOAD_CELL_H
-#define _LOAD_CELL_H
+#ifndef load_cell_h__
+#define load_cell_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#include "config.h"
+#include <avr/io.h>
 #include "adc.h"
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _LOAD_CELL_H */
+#endif // load_cell_h__

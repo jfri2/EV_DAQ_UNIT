@@ -6,17 +6,11 @@
 * All rights reserved
 */
 
-#ifndef _ADC_H
-#define _ADC_H
+#ifndef adc_h__
+#define adc_h__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <avr/io.h>
 
-int8_t max8(int8_t num1, int8_t num2);
+// TODO
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _ADC_H */
+#endif // adc_h__
