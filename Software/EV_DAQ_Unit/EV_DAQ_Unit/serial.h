@@ -13,9 +13,9 @@
 #include <avr/io.h>
 #include <stdio.h>
 
-static void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud);
-static int uart0_stdio_write_byte(uint8_t ch, FILE *stream);
-static int uart0_stdio_read_byte(FILE *stream);
+void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud);
+uint8_t uart0_stdio_write_byte(uint8_t ch, FILE *stream);
+uint8_t uart0_stdio_read_byte(FILE *stream);
 static FILE Avr_StdOut = FDEV_SETUP_STREAM(uart0_stdio_write_byte, uart0_stdio_read_byte, _FDEV_SETUP_RW);
 
 #endif // serial_h__

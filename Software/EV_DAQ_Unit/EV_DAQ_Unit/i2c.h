@@ -32,10 +32,10 @@
 #define I2C_STATUS_DATA_NACK    0x30    // Data byte has been transmitted; NOT ACK received
 #define I2C_STATUS_ARBLOST      0x38    // Arbitration lost in SLA+W or data bytes
 
-static uint8_t i2c_calc_br_div(uint32_t cpu_freq, uint32_t i2c_freq);
-static uint8_t i2c1_tx(uint8_t i2c_event);
-static void i2c1_init(uint32_t cpu_freq, uint32_t i2c_freq);
-static uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2c_bytes);
-static uint8_t i2c1_read(uint8_t i2c_device_addr, uint8_t *p_i2c_data_in, uint8_t *p_i2c_data_out, uint32_t num_i2c_bytes);
+uint8_t i2c_calc_br_div(uint32_t cpu_freq, uint32_t i2c_freq);
+uint8_t i2c1_tx(uint8_t i2c_event);
+void i2c1_init(uint32_t cpu_freq, uint32_t i2c_freq);
+uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2c_bytes);
+uint8_t i2c1_read(uint8_t i2c_device_addr, uint8_t *p_i2c_data_in, uint8_t *p_i2c_data_out, uint32_t num_i2c_bytes);
 
 #endif // i2c_h__

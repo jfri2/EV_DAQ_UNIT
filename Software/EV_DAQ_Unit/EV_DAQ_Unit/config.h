@@ -53,6 +53,8 @@
 #include "i2c.h"
 #include "adc.h"
 #include "serial.h"
+
+/* Driver & Component */
 #include "timer.h"
 
 /* Project Components */
@@ -62,5 +64,12 @@
 #include "pushbuttons.h"
 #include "load_cell.h"
 #include "leds.h"
+
+/* Global Variables */
+extern uint16_t systck_ms;
+extern uint8_t systck_s;
+extern uint8_t systck_m;
+extern uint8_t systck_h;
+extern uint16_t systck_d;
 
 #endif // config_h__
