@@ -14,8 +14,9 @@ int main(void) {
     /* Replace with your application code */
     while (1) {
         // TODO:
-        printf("hahah");
+        printf("\nHello World");
         scanf("%d",&test);
+        printf("");
     }
 }
 
