@@ -10,17 +10,25 @@
 #include "data_utils.h"
 
 /*!
-* @brief Insertion sort for 
+* @brief Insertion sort for uint16 array where max length is 65535 (2^16-1)
 * @param[in] uint16_t *data     Pointer to array that contains data to average
 * @param[in] uint16_t data_len  Length of data array
 * @return void
 */
 void data_insertion_sort_uint16(uint16_t *data, uint16_t data_len) {
-    
-    if(data_len <= 1) { 
-        return(data[0]); // Break from function if not more than one data point 
-    }  
-    
+    uint16_t i = 0;
+    int32_t j = 0;
+    uint16_t temp = 0;
+
+    for(i=1; i < data_len; i++) {
+        temp = data[i];
+        j = i - 1;
+        while((temp < data[j]) && (j >= 0)) {
+            data[j+1] = data[j];
+            j = j - 1;
+        }
+        data[j+1] = temp;
+    }
 }
 
 /*!
