@@ -1,6 +1,6 @@
-/** @file module.harderr*
+/** @file timer.h
 *
-* @brief A description of the module's purpose.
+* @brief Driver for ATMEGA328PB timers
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz

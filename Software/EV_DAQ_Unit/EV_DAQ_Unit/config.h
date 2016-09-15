@@ -1,4 +1,4 @@
-/** @file config.h*
+/** @file config.h
 * @brief Configuration file for EV_DAQ_Unit project
 *
 * @par

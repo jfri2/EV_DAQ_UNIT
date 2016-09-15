@@ -1,6 +1,6 @@
-/** @file module.c
+/** @file timer.c
 *
-* @brief A description of the module's purpose.
+* @brief Driver for ATMEGA328PB timers
 *
 * @par
 * COPYRIGHT NOTICS: (c) 2016 John Fritz

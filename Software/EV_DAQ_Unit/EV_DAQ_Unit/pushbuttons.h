@@ -1,4 +1,4 @@
-/** @file module.harderr*
+/** @file pushbuttons.h
 * @brief A description of the module's purpose.
 *
 * @par

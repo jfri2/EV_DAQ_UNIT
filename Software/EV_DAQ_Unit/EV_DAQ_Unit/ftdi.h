@@ -1,4 +1,4 @@
-/** @file ftdi.h*
+/** @file ftdi.h
 * @brief A description of the module's purpose.
 *
 * @par
