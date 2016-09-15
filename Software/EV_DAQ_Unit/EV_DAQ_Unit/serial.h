@@ -14,8 +14,14 @@
 #include <stdio.h>
 
 void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud);
-uint8_t uart0_stdio_write_byte(uint8_t ch, FILE *stream);
-uint8_t uart0_stdio_read_byte(FILE *stream);
-static FILE Avr_StdOut = FDEV_SETUP_STREAM(uart0_stdio_write_byte, uart0_stdio_read_byte, _FDEV_SETUP_RW);
+void uart0_put(uint8_t ch);
+void uart0_puts(uint8_t *ch, uint8_t ch_len);
+uint8_t uart0_stdio_put(uint8_t ch, FILE *stream);
+uint8_t uart0_get(void);
+void uart0_gets(uint8_t *ch, uint8_t ch_len);
+uint8_t uart0_stdio_get(FILE *stream);
+
+static FILE uart_stdio = FDEV_SETUP_STREAM(uart0_stdio_put, uart0_stdio_get, _FDEV_SETUP_RW);
+
 
 #endif // serial_h__

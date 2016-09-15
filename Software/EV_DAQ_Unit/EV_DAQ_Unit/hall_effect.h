@@ -1,4 +1,4 @@
-/** @file module.harderr*
+/** @file hall_effect.h
 * @brief A description of the module's purpose.
 *
 * @par
@@ -11,9 +11,7 @@
 
 #include "config.h"
 #include <avr/io.h>
-#include "gpio.h"
-#include "timer.h"
 
-// TODO
+
 
 #endif // hall_effect_h__

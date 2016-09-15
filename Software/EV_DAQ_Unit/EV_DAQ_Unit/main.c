@@ -16,7 +16,7 @@ int main(void) {
         // TODO:
         printf("\nHello World");
         scanf("%d",&test);
-        printf("");
+        printf("\n%d", test);
     }
 }
 
