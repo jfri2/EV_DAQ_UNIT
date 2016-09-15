@@ -33,6 +33,7 @@ void uart0_init(uint32_t cpu_freq, uint32_t uart_baud) {
 */
 void uart0_stdio_assign(void) {
     // Assign STDIO Streams
+    static FILE uart_stdio = FDEV_SETUP_STREAM(uart0_stdio_put, uart0_stdio_get, _FDEV_SETUP_RW);
     stdout = &uart_stdio;   // Define output stream
     stdin = &uart_stdio;    // Define input stream
 }

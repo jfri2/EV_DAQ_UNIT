@@ -22,6 +22,4 @@ uint8_t uart0_get(void);
 void uart0_gets(uint8_t *ch, uint8_t ch_len);
 uint8_t uart0_stdio_get(FILE *stream);
 
-static FILE uart_stdio = FDEV_SETUP_STREAM(uart0_stdio_put, uart0_stdio_get, _FDEV_SETUP_RW);
-
 #endif // serial_h__
