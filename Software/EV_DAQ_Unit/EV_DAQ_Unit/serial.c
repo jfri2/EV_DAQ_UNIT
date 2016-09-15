@@ -15,7 +15,7 @@
 * @param[in] uint32_t uart_baud     Desired UART baud rate
 * @return void
 */
-void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud) {    
+void uart0_init(uint32_t cpu_freq, uint32_t uart_baud) {    
     // Set UART0 to no parity, 8 data bits, 1 stop bit
     // Enable Tx & Rx UART
     UCSR0A = 0x00;
@@ -24,9 +24,15 @@ void uart0_stdio_init(uint32_t cpu_freq, uint32_t uart_baud) {
     
     // Set UART0 Baud Rate
     UBRR0H = (((cpu_freq/uart_baud)/32)-1)>>8;  // Set baud rate div (upper register)
-    UBRR0L = (((cpu_freq/uart_baud)/32)-1);     // Set baud rate div (lower register)
-    
-    // Define STDIO Streams
+    UBRR0L = (((cpu_freq/uart_baud)/32)-1);     // Set baud rate div (lower register)   
+}
+
+/*!
+* @brief Assign STDIO streams to uart
+* @return void
+*/
+void uart0_stdio_assign(void) {
+    // Assign STDIO Streams
     stdout = &uart_stdio;   // Define output stream
     stdin = &uart_stdio;    // Define input stream
 }
@@ -47,9 +53,9 @@ void uart0_put(uint8_t ch) {
 * @param[in] uint8_t ch_len   Length of array
 * @return void
 */
-void uart0_puts(uint8_t ch*, uint8_t ch_len) {
+void uart0_puts(uint8_t *ch, uint8_t ch_len) {
     for(uint8_t i=0; i < ch_len; i++) {
-        uart0_put(ch);
+        uart0_put(ch[i]);
     }
 }
 
