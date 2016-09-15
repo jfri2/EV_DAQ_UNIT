@@ -571,7 +571,7 @@ END GROUP
  *(.fini0)
                 0x0000099c                _etext = .
 
-.data           0x00800100      0x118 load address 0x0000099c
+.data           0x00800100      0x11a load address 0x0000099c
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -580,41 +580,40 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x0080010e      0x109 main.o
+                0x0080010e      0x10c main.o
  *(.gnu.linkonce.d*)
-                0x00800218                . = ALIGN (0x2)
- *fill*         0x00800217        0x1 
-                0x00800218                _edata = .
-                0x00800218                PROVIDE (__data_end, .)
+                0x0080021a                . = ALIGN (0x2)
+                0x0080021a                _edata = .
+                0x0080021a                PROVIDE (__data_end, .)
 
-.bss            0x00800218        0xd
-                0x00800218                PROVIDE (__bss_start, .)
+.bss            0x0080021a        0xd
+                0x0080021a                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.systck_d  0x00800218        0x2 timer.o
-                0x00800218                systck_d
- .bss.systck_h  0x0080021a        0x1 timer.o
-                0x0080021a                systck_h
- .bss.systck_m  0x0080021b        0x1 timer.o
-                0x0080021b                systck_m
- .bss.systck_s  0x0080021c        0x1 timer.o
-                0x0080021c                systck_s
+ .bss.systck_d  0x0080021a        0x2 timer.o
+                0x0080021a                systck_d
+ .bss.systck_h  0x0080021c        0x1 timer.o
+                0x0080021c                systck_h
+ .bss.systck_m  0x0080021d        0x1 timer.o
+                0x0080021d                systck_m
+ .bss.systck_s  0x0080021e        0x1 timer.o
+                0x0080021e                systck_s
  .bss.systck_ms
-                0x0080021d        0x2 timer.o
-                0x0080021d                systck_ms
+                0x0080021f        0x2 timer.o
+                0x0080021f                systck_ms
  *(COMMON)
- COMMON         0x0080021f        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
-                0x0080021f                __iob
-                0x00800225                PROVIDE (__bss_end, .)
+ COMMON         0x00800221        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
+                0x00800221                __iob
+                0x00800227                PROVIDE (__bss_end, .)
                 0x0000099c                __data_load_start = LOADADDR (.data)
-                0x00000ab4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000ab6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800225        0x0
-                0x00800225                PROVIDE (__noinit_start, .)
+.noinit         0x00800227        0x0
+                0x00800227                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800225                PROVIDE (__noinit_end, .)
-                0x00800225                _end = .
-                0x00800225                PROVIDE (__heap_start, .)
+                0x00800227                PROVIDE (__noinit_end, .)
+                0x00800227                _end = .
+                0x00800227                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

@@ -3,31 +3,31 @@ EV_DAQ_Unit.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000118  00800100  0000099c  00000a30  2**0
+  0 .data         0000011a  00800100  0000099c  00000a30  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         0000099c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000000d  00800218  00800218  00000b48  2**0
+  2 .bss          0000000d  0080021a  0080021a  00000b4a  2**0
                   ALLOC
-  3 .comment      0000005c  00000000  00000000  00000b48  2**0
+  3 .comment      0000005c  00000000  00000000  00000b4a  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000ba4  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000ba8  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000108  00000000  00000000  00000be4  2**0
+  5 .debug_aranges 00000108  00000000  00000000  00000be8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000094f  00000000  00000000  00000cec  2**0
+  6 .debug_info   0000094f  00000000  00000000  00000cf0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000004e6  00000000  00000000  0000163b  2**0
+  7 .debug_abbrev 000004e6  00000000  00000000  0000163f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000004c7  00000000  00000000  00001b21  2**0
+  8 .debug_line   000004c7  00000000  00000000  00001b25  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000002a4  00000000  00000000  00001fe8  2**2
+  9 .debug_frame  000002a4  00000000  00000000  00001fec  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000003b6  00000000  00000000  0000228c  2**0
+ 10 .debug_str    000003b6  00000000  00000000  00002290  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000009fe  00000000  00000000  00002642  2**0
+ 11 .debug_loc    000009fe  00000000  00000000  00002646  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000e8  00000000  00000000  00003040  2**0
+ 12 .debug_ranges 000000e8  00000000  00000000  00003044  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -96,13 +96,13 @@ Disassembly of section .text:
   ca:	02 c0       	rjmp	.+4      	; 0xd0 <__do_copy_data+0x10>
   cc:	05 90       	lpm	r0, Z+
   ce:	0d 92       	st	X+, r0
-  d0:	a8 31       	cpi	r26, 0x18	; 24
+  d0:	aa 31       	cpi	r26, 0x1A	; 26
   d2:	b1 07       	cpc	r27, r17
   d4:	d9 f7       	brne	.-10     	; 0xcc <__do_copy_data+0xc>
 
 000000d6 <__do_clear_bss>:
   d6:	22 e0       	ldi	r18, 0x02	; 2
-  d8:	a8 e1       	ldi	r26, 0x18	; 24
+  d8:	aa e1       	ldi	r26, 0x1A	; 26
   da:	b2 e0       	ldi	r27, 0x02	; 2
   dc:	01 c0       	rjmp	.+2      	; 0xe0 <.do_clear_bss_start>
 
@@ -110,7 +110,7 @@ Disassembly of section .text:
   de:	1d 92       	st	X+, r1
 
 000000e0 <.do_clear_bss_start>:
-  e0:	a5 32       	cpi	r26, 0x25	; 37
+  e0:	a7 32       	cpi	r26, 0x27	; 39
   e2:	b2 07       	cpc	r27, r18
   e4:	e1 f7       	brne	.-8      	; 0xde <.do_clear_bss_loop>
   e6:	0e 94 95 00 	call	0x12a	; 0x12a <main>
@@ -172,39 +172,40 @@ void i2c1_init(uint32_t cpu_freq, uint32_t i2c_freq) {
  128:	08 95       	ret
 
 0000012a <main>:
-                                printf("\n==============================================\n")
                                 
-#define PRINT_SYSTIME() printf("\n%d %02d:%02d:%02d:%03d ", systck_d, systck_h, systck_m, systck_s, systck_ms);
+#define PRINT_SYSTIME() printf("\n%d %02d:%02d:%02d:%03d    ", systck_d, systck_h, systck_m, systck_s, systck_ms);
 
 int main(void) {
-    uart0_init(F_CPU, UART_BAUD);
- 12a:	20 e0       	ldi	r18, 0x00	; 0
- 12c:	32 ec       	ldi	r19, 0xC2	; 194
- 12e:	41 e0       	ldi	r20, 0x01	; 1
- 130:	50 e0       	ldi	r21, 0x00	; 0
- 132:	60 e0       	ldi	r22, 0x00	; 0
- 134:	74 e2       	ldi	r23, 0x24	; 36
- 136:	84 ef       	ldi	r24, 0xF4	; 244
- 138:	90 e0       	ldi	r25, 0x00	; 0
- 13a:	0e 94 06 01 	call	0x20c	; 0x20c <uart0_init>
-    uart0_stdio_assign();
- 13e:	0e 94 2a 01 	call	0x254	; 0x254 <uart0_stdio_assign>
-    i2c1_init(F_CPU, I2C_SCL_FREQ);
- 142:	20 ea       	ldi	r18, 0xA0	; 160
- 144:	36 e8       	ldi	r19, 0x86	; 134
- 146:	41 e0       	ldi	r20, 0x01	; 1
- 148:	50 e0       	ldi	r21, 0x00	; 0
- 14a:	60 e0       	ldi	r22, 0x00	; 0
- 14c:	74 e2       	ldi	r23, 0x24	; 36
- 14e:	84 ef       	ldi	r24, 0xF4	; 244
- 150:	90 e0       	ldi	r25, 0x00	; 0
- 152:	0e 94 82 00 	call	0x104	; 0x104 <i2c1_init>
-    adc_init((ADC_DIG_DIS_LC | ADC_DIG_DIS_HE), ADC_DIV_128);
- 156:	67 e0       	ldi	r22, 0x07	; 7
- 158:	87 ec       	ldi	r24, 0xC7	; 199
- 15a:	0e 94 79 00 	call	0xf2	; 0xf2 <adc_init>
+    /* Initialization Routines */
     timer1_1ms_init();
- 15e:	0e 94 93 01 	call	0x326	; 0x326 <timer1_1ms_init>
+ 12a:	0e 94 93 01 	call	0x326	; 0x326 <timer1_1ms_init>
+    uart0_init(F_CPU, UART_BAUD);
+ 12e:	20 e0       	ldi	r18, 0x00	; 0
+ 130:	32 ec       	ldi	r19, 0xC2	; 194
+ 132:	41 e0       	ldi	r20, 0x01	; 1
+ 134:	50 e0       	ldi	r21, 0x00	; 0
+ 136:	60 e0       	ldi	r22, 0x00	; 0
+ 138:	74 e2       	ldi	r23, 0x24	; 36
+ 13a:	84 ef       	ldi	r24, 0xF4	; 244
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	0e 94 06 01 	call	0x20c	; 0x20c <uart0_init>
+    uart0_stdio_assign();
+ 142:	0e 94 2a 01 	call	0x254	; 0x254 <uart0_stdio_assign>
+    i2c1_init(F_CPU, I2C_SCL_FREQ);
+ 146:	20 ea       	ldi	r18, 0xA0	; 160
+ 148:	36 e8       	ldi	r19, 0x86	; 134
+ 14a:	41 e0       	ldi	r20, 0x01	; 1
+ 14c:	50 e0       	ldi	r21, 0x00	; 0
+ 14e:	60 e0       	ldi	r22, 0x00	; 0
+ 150:	74 e2       	ldi	r23, 0x24	; 36
+ 152:	84 ef       	ldi	r24, 0xF4	; 244
+ 154:	90 e0       	ldi	r25, 0x00	; 0
+ 156:	0e 94 82 00 	call	0x104	; 0x104 <i2c1_init>
+    adc_init((ADC_DIG_DIS_LC | ADC_DIG_DIS_HE), ADC_DIV_128);
+ 15a:	67 e0       	ldi	r22, 0x07	; 7
+ 15c:	87 ec       	ldi	r24, 0xC7	; 199
+ 15e:	0e 94 79 00 	call	0xf2	; 0xf2 <adc_init>
+    
     PRINT_PROJECT_HEADER();
  162:	8e e0       	ldi	r24, 0x0E	; 14
  164:	91 e0       	ldi	r25, 0x01	; 1
@@ -245,26 +246,27 @@ int main(void) {
  1b8:	9e bf       	out	0x3e, r25	; 62
  1ba:	0f be       	out	0x3f, r0	; 63
  1bc:	8d bf       	out	0x3d, r24	; 61
+    
     while (1) {
         PRINT_SYSTIME();
  1be:	ce ef       	ldi	r28, 0xFE	; 254
  1c0:	d1 e0       	ldi	r29, 0x01	; 1
- 1c2:	80 91 1e 02 	lds	r24, 0x021E
+ 1c2:	80 91 20 02 	lds	r24, 0x0220
  1c6:	8f 93       	push	r24
- 1c8:	80 91 1d 02 	lds	r24, 0x021D
+ 1c8:	80 91 1f 02 	lds	r24, 0x021F
  1cc:	8f 93       	push	r24
- 1ce:	80 91 1c 02 	lds	r24, 0x021C
+ 1ce:	80 91 1e 02 	lds	r24, 0x021E
  1d2:	1f 92       	push	r1
  1d4:	8f 93       	push	r24
- 1d6:	80 91 1b 02 	lds	r24, 0x021B
+ 1d6:	80 91 1d 02 	lds	r24, 0x021D
  1da:	1f 92       	push	r1
  1dc:	8f 93       	push	r24
- 1de:	80 91 1a 02 	lds	r24, 0x021A
+ 1de:	80 91 1c 02 	lds	r24, 0x021C
  1e2:	1f 92       	push	r1
  1e4:	8f 93       	push	r24
- 1e6:	80 91 19 02 	lds	r24, 0x0219
+ 1e6:	80 91 1b 02 	lds	r24, 0x021B
  1ea:	8f 93       	push	r24
- 1ec:	80 91 18 02 	lds	r24, 0x0218
+ 1ec:	80 91 1a 02 	lds	r24, 0x021A
  1f0:	8f 93       	push	r24
  1f2:	df 93       	push	r29
  1f4:	cf 93       	push	r28
@@ -331,7 +333,7 @@ void uart0_stdio_assign(void) {
     // Assign STDIO Streams
     static FILE uart_stdio = FDEV_SETUP_STREAM(uart0_stdio_put, uart0_stdio_get, _FDEV_SETUP_RW);
     stdout = &uart_stdio;   // Define output stream
- 254:	ef e1       	ldi	r30, 0x1F	; 31
+ 254:	e1 e2       	ldi	r30, 0x21	; 33
  256:	f2 e0       	ldi	r31, 0x02	; 2
  258:	80 e0       	ldi	r24, 0x00	; 0
  25a:	91 e0       	ldi	r25, 0x01	; 1
@@ -416,8 +418,8 @@ ISR(TIMER1_COMPA_vect) {
  2a2:	9f 93       	push	r25
     /* Increment systck global vars to keep system time */
     systck_ms++;
- 2a4:	80 91 1d 02 	lds	r24, 0x021D
- 2a8:	90 91 1e 02 	lds	r25, 0x021E
+ 2a4:	80 91 1f 02 	lds	r24, 0x021F
+ 2a8:	90 91 20 02 	lds	r25, 0x0220
  2ac:	01 96       	adiw	r24, 0x01	; 1
     if(systck_ms >= 1000) {
  2ae:	88 3e       	cpi	r24, 0xE8	; 232
@@ -430,15 +432,15 @@ uint16_t systck_d = 0;
 ISR(TIMER1_COMPA_vect) {
     /* Increment systck global vars to keep system time */
     systck_ms++;
- 2b6:	90 93 1e 02 	sts	0x021E, r25
- 2ba:	80 93 1d 02 	sts	0x021D, r24
+ 2b6:	90 93 20 02 	sts	0x0220, r25
+ 2ba:	80 93 1f 02 	sts	0x021F, r24
  2be:	2b c0       	rjmp	.+86     	; 0x316 <__vector_11+0x82>
     if(systck_ms >= 1000) {
         systck_ms = 0;
- 2c0:	10 92 1e 02 	sts	0x021E, r1
- 2c4:	10 92 1d 02 	sts	0x021D, r1
+ 2c0:	10 92 20 02 	sts	0x0220, r1
+ 2c4:	10 92 1f 02 	sts	0x021F, r1
         systck_s++;
- 2c8:	80 91 1c 02 	lds	r24, 0x021C
+ 2c8:	80 91 1e 02 	lds	r24, 0x021E
  2cc:	8f 5f       	subi	r24, 0xFF	; 255
         if(systck_s >= 60) {
  2ce:	8c 33       	cpi	r24, 0x3C	; 60
@@ -449,13 +451,13 @@ ISR(TIMER1_COMPA_vect) {
     if(systck_ms >= 1000) {
         systck_ms = 0;
         systck_s++;
- 2d2:	80 93 1c 02 	sts	0x021C, r24
+ 2d2:	80 93 1e 02 	sts	0x021E, r24
  2d6:	1f c0       	rjmp	.+62     	; 0x316 <__vector_11+0x82>
         if(systck_s >= 60) {
             systck_s = 0;
- 2d8:	10 92 1c 02 	sts	0x021C, r1
+ 2d8:	10 92 1e 02 	sts	0x021E, r1
             systck_m++;
- 2dc:	80 91 1b 02 	lds	r24, 0x021B
+ 2dc:	80 91 1d 02 	lds	r24, 0x021D
  2e0:	8f 5f       	subi	r24, 0xFF	; 255
             if(systck_m >= 60) {
  2e2:	8c 33       	cpi	r24, 0x3C	; 60
@@ -466,13 +468,13 @@ ISR(TIMER1_COMPA_vect) {
         if(systck_s >= 60) {
             systck_s = 0;
             systck_m++;
- 2e6:	80 93 1b 02 	sts	0x021B, r24
+ 2e6:	80 93 1d 02 	sts	0x021D, r24
  2ea:	15 c0       	rjmp	.+42     	; 0x316 <__vector_11+0x82>
             if(systck_m >= 60) {
                 systck_m = 0;
- 2ec:	10 92 1b 02 	sts	0x021B, r1
+ 2ec:	10 92 1d 02 	sts	0x021D, r1
                 systck_h++;
- 2f0:	80 91 1a 02 	lds	r24, 0x021A
+ 2f0:	80 91 1c 02 	lds	r24, 0x021C
  2f4:	8f 5f       	subi	r24, 0xFF	; 255
                 if(systck_h >= 24) {
  2f6:	88 31       	cpi	r24, 0x18	; 24
@@ -483,17 +485,17 @@ ISR(TIMER1_COMPA_vect) {
             if(systck_m >= 60) {
                 systck_m = 0;
                 systck_h++;
- 2fa:	80 93 1a 02 	sts	0x021A, r24
+ 2fa:	80 93 1c 02 	sts	0x021C, r24
  2fe:	0b c0       	rjmp	.+22     	; 0x316 <__vector_11+0x82>
                 if(systck_h >= 24) {
                     systck_h = 0;
- 300:	10 92 1a 02 	sts	0x021A, r1
+ 300:	10 92 1c 02 	sts	0x021C, r1
                     systck_d++;                    
- 304:	80 91 18 02 	lds	r24, 0x0218
- 308:	90 91 19 02 	lds	r25, 0x0219
+ 304:	80 91 1a 02 	lds	r24, 0x021A
+ 308:	90 91 1b 02 	lds	r25, 0x021B
  30c:	01 96       	adiw	r24, 0x01	; 1
- 30e:	90 93 19 02 	sts	0x0219, r25
- 312:	80 93 18 02 	sts	0x0218, r24
+ 30e:	90 93 1b 02 	sts	0x021B, r25
+ 312:	80 93 1a 02 	sts	0x021A, r24
                 }
             }
         }        
@@ -610,8 +612,8 @@ inline void timer1_enable(void) {
  3b6:	61 91       	ld	r22, Z+
  3b8:	71 91       	ld	r23, Z+
  3ba:	af 01       	movw	r20, r30
- 3bc:	80 91 21 02 	lds	r24, 0x0221
- 3c0:	90 91 22 02 	lds	r25, 0x0222
+ 3bc:	80 91 23 02 	lds	r24, 0x0223
+ 3c0:	90 91 24 02 	lds	r25, 0x0224
  3c4:	0e 94 17 02 	call	0x42e	; 0x42e <vfprintf>
  3c8:	e2 e0       	ldi	r30, 0x02	; 2
  3ca:	0c 94 c1 04 	jmp	0x982	; 0x982 <__epilogue_restores__+0x20>
@@ -621,8 +623,8 @@ inline void timer1_enable(void) {
  3d0:	1f 93       	push	r17
  3d2:	cf 93       	push	r28
  3d4:	df 93       	push	r29
- 3d6:	e0 91 21 02 	lds	r30, 0x0221
- 3da:	f0 91 22 02 	lds	r31, 0x0222
+ 3d6:	e0 91 23 02 	lds	r30, 0x0223
+ 3da:	f0 91 24 02 	lds	r31, 0x0224
  3de:	23 81       	ldd	r18, Z+3	; 0x03
  3e0:	21 ff       	sbrs	r18, 1
  3e2:	1b c0       	rjmp	.+54     	; 0x41a <puts+0x4c>
@@ -632,8 +634,8 @@ inline void timer1_enable(void) {
  3ea:	f8 01       	movw	r30, r16
  3ec:	81 91       	ld	r24, Z+
  3ee:	8f 01       	movw	r16, r30
- 3f0:	60 91 21 02 	lds	r22, 0x0221
- 3f4:	70 91 22 02 	lds	r23, 0x0222
+ 3f0:	60 91 23 02 	lds	r22, 0x0223
+ 3f4:	70 91 24 02 	lds	r23, 0x0224
  3f8:	db 01       	movw	r26, r22
  3fa:	18 96       	adiw	r26, 0x08	; 8
  3fc:	ed 91       	ld	r30, X+

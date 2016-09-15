@@ -67,3 +67,16 @@ uint16_t data_2n_average_uint16(uint16_t *data, uint16_t data_len) {
     /* Average and return accumulated value */
     return((uint16_t)(avg_acc >> pow2_div));
 }
+
+/*!
+* @brief Copy one uint16_t array to another
+* @param[in] uint16_t *array_from   Pointer to array to copy data from
+* @param[in] uint16_t *array_to     Point to array to copy data to
+* @param[in] uint16_t data_len      Length of data to copy, max 65535
+* @return void
+*/
+void data_copy_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t data_len) {
+    for(uint16_t i=0; i < data_len; i++) {
+        data_to[i] = data_from[i];
+    }
+}
