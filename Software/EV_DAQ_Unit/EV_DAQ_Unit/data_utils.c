@@ -3,7 +3,7 @@
 * @brief Contains insertion sort and averaging algorithms
 *
 * @par
-* COPYRIGHT NOTICS: (c) 2016 John Fritz
+* COPYRIGHT NOTICE: (c) 2016 John Fritz
 * All rights reserved.
 */
 

@@ -11,6 +11,10 @@
 
 #include "config.h"
 
-// TODO
+void lcd_init();
+void lcd_stdio_assign();
+void lcd_set_line_1();
+void lcd_set_line_2();
+void lcd_
 
 #endif // lcd_h__

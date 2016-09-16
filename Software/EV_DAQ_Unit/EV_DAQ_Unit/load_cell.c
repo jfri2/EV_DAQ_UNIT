@@ -3,7 +3,7 @@
 * @brief A description of the module's purpose.
 *
 * @par
-* COPYRIGHT NOTICS: (c) 2016 John Fritz
+* COPYRIGHT NOTICE: (c) 2016 John Fritz
 * All rights reserved.
 */
 
