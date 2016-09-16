@@ -1,4 +1,4 @@
-/** @file module.c
+/** @file wdt.c
 *
 * @brief A description of the module's purpose.
 *
@@ -7,7 +7,7 @@
 * All rights reserved.
 */
 
-#include "lcd.h"
+#include "wdt.h"
 
 /*!
 * @brief Identify the larger of two 8-bit numbers.

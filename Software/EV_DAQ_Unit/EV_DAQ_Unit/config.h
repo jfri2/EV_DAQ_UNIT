@@ -56,6 +56,7 @@
 
 /* AVR Functions & Definitions*/
 #include <avr/io.h>
+#include <avr/interrupt.h>
 
 /* Utilities */
 #include "data_utils.h"
@@ -64,7 +65,7 @@
 #include "gpio.h"
 #include "i2c.h"
 #include "adc.h"
-#include "serial.h"
+#include "uart.h"
 
 /* Project Driver & Component Combinations */
 #include "timer.h"

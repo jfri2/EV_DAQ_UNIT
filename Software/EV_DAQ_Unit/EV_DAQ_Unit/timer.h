@@ -11,8 +11,6 @@
 #define timer_h__
 
 #include "config.h"
-#include <avr/io.h>
-#include <avr/interrupt.h>
 
 #ifndef F_CPU
 #error "Define F_CPU in config.h"

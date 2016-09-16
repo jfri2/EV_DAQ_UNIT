@@ -10,8 +10,6 @@
 #define load_cell_h__
 
 #include "config.h"
-#include <avr/io.h>
-#include "adc.h"
 
 // TODO
 

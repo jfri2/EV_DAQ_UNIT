@@ -1,4 +1,4 @@
-/** @file lcd.h
+/** @file wdt.h
 * @brief A description of the module's purpose.
 *
 * @par
@@ -6,12 +6,10 @@
 * All rights reserved
 */
 
-#ifndef lcd_h__
-#define lcd_h__
+#ifndef wdt_h__
+#define wdt_h__
 
 #include "config.h"
-#include <avr/io.h>
-#include "i2c.h"
 
 // TODO
 

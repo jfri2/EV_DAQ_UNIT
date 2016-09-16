@@ -1,13 +1,13 @@
-/** @file serial.c
+/** @file uart.c
 *
-* @brief Serial (STDIO over UART) driver for ATMEGA328PB
+* @brief Serial UART driver for ATMEGA328PB with stdio
 *
 * @par
 * COPYRIGHT NOTICS: (c) 2016 John Fritz
 * All rights reserved.
 */
 
-#include "serial.h"
+#include "uart.h"
 
 /*!
 * @brief Initialize uart0
@@ -67,6 +67,7 @@ void uart0_puts(uint8_t *ch, uint8_t ch_len) {
 * @return uint8_t
 */
 uint8_t uart0_stdio_put(uint8_t ch, FILE *steam) {
+    uart0_stdio_assign();
     uart0_put(ch);
     return(0);
 }
@@ -76,6 +77,7 @@ uint8_t uart0_stdio_put(uint8_t ch, FILE *steam) {
 * @return uint8_t   Value from UART0
 */
 uint8_t uart0_get(void) {
+    uart0_stdio_assign();
     while((UCSR0A & (1<<RXC0)) == 0x00);    // Wait until rx char flag is set
     return(UDR0);    
 }

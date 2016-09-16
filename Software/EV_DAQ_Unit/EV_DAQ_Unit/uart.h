@@ -1,14 +1,14 @@
-/** @file serial.h
+/** @file uart.h
 *
-* @brief Serial (STDIO over UART) driver for ATMEGA328PB
+* @brief UART driver for ATMEGA328PB with stdio
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz
 * All rights reserved
 */
 
-#ifndef serial_h__
-#define serial_h__
+#ifndef uart_h__
+#define uart_h__
 
 #include <avr/io.h>
 #include <stdio.h>
@@ -22,4 +22,4 @@ uint8_t uart0_get(void);
 void uart0_gets(uint8_t *ch, uint8_t ch_len);
 uint8_t uart0_stdio_get(FILE *stream);
 
-#endif // serial_h__
+#endif // uart_h__

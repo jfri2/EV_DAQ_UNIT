@@ -10,8 +10,6 @@
 #define pushbuttons_h__
 
 #include "config.h"
-#include <avr/io.h>
-#include "gpio.h"
 
 // TODO
 

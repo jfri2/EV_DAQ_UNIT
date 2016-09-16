@@ -4,6 +4,8 @@
 
 adc.c
 
+data_utils.c
+
 ftdi.c
 
 gpio.c
@@ -22,7 +24,9 @@ main.c
 
 pushbuttons.c
 
-serial.c
-
 timer.c
+
+uart.c
+
+wdt.c
 

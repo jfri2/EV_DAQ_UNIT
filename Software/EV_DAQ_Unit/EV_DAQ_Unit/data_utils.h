@@ -9,7 +9,7 @@
 #ifndef data_utils_h__
 #define data_utils_h__
 
-#include "config.h"
+#include <stdint.h>
 
 void data_insertion_sort_uint16(uint16_t *data, uint16_t data_len);
 void data_2n_average(uint16_t *data, uint16_t data_len);
