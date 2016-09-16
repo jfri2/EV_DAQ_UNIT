@@ -77,6 +77,7 @@
 #include "pushbuttons.h"
 #include "load_cell.h"
 #include "leds.h"
+#include "print.h"
 
 /* Global Variables */
 extern uint16_t systck_ms;

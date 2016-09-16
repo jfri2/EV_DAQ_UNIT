@@ -22,6 +22,8 @@ load_cell.c
 
 main.c
 
+print.c
+
 pushbuttons.c
 
 timer.c

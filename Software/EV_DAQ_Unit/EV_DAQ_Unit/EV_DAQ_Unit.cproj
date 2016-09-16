@@ -197,6 +197,14 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="print.c">
+      <SubType>compile</SubType>
+      <Link>print.c</Link>
+    </Compile>
+    <Compile Include="print.h">
+      <SubType>compile</SubType>
+      <Link>print.h</Link>
+    </Compile>
     <Compile Include="pushbuttons.c">
       <SubType>compile</SubType>
       <Link>pushbuttons.c</Link>

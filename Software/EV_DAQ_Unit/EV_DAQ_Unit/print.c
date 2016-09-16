@@ -7,14 +7,36 @@
 * All rights reserved.
 */
 
-#include "module.h"
+#include "print.h"
 
 /*!
-* @brief Identify the larger of two 8-bit numbers.
-* @param[in] num1    The first number to be compared.
-* @param[in] num2    The second number to be compared.
-* @return int8_t
+* @brief Write data over UART0 (stdio)
+* @param[in] uint8_t ch     Character to write
+* @param[in] FILE *stream   Pointer to stream location for stdio
+* @return uint8_t
 */
-int8_t max8 (int8_t num1, int8_t num2) {
-	return ((num1 > num2) ? num1 : num2);
+uint8_t stdio_uart_put(uint8_t ch, FILE *stream) {
+    uart0_put(ch);
+    return(0);
+}
+
+/*!
+* @brief Read data over UART0 (stdio)
+* @param[in] FILE *stream   Pointer to stream location for stdio
+* @return uint8_t
+*/
+uint8_t stdio_uart_get(FILE *stream) {
+    uint8_t ch = uart0_get();
+    return(ch);
+}
+
+/*!
+* @brief Write data to LCD (stdio)
+* @param[in] uint8_t ch     Character to write
+* @param[in] FILE *stream   Pointer to stream location for stdio
+* @return uint8_t
+*/
+uint8_t stdio_lcd_put(uint8_t ch, FILE *stream) {
+    // TODO
+    return(0);
 }

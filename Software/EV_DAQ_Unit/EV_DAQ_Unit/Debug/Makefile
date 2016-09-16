@@ -47,6 +47,7 @@ C_SRCS +=  \
 ../leds.c \
 ../load_cell.c \
 ../main.c \
+../print.c \
 ../pushbuttons.c \
 ../timer.c \
 ../uart.c \
@@ -70,6 +71,7 @@ lcd.o \
 leds.o \
 load_cell.o \
 main.o \
+print.o \
 pushbuttons.o \
 timer.o \
 uart.o \
@@ -86,6 +88,7 @@ lcd.o \
 leds.o \
 load_cell.o \
 main.o \
+print.o \
 pushbuttons.o \
 timer.o \
 uart.o \
@@ -102,6 +105,7 @@ lcd.d \
 leds.d \
 load_cell.d \
 main.d \
+print.d \
 pushbuttons.d \
 timer.d \
 uart.d \
@@ -118,6 +122,7 @@ lcd.d \
 leds.d \
 load_cell.d \
 main.d \
+print.d \
 pushbuttons.d \
 timer.d \
 uart.d \
@@ -137,6 +142,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
