@@ -80,10 +80,11 @@
 #include "print.h"
 
 /* Global Variables */
-extern uint16_t systck_ms;
-extern uint8_t systck_s;
-extern uint8_t systck_m;
-extern uint8_t systck_h;
-extern uint16_t systck_d;
+extern uint64_t systck;
+extern uint16_t systime_ms;
+extern uint8_t systime_s;
+extern uint8_t systime_m;
+extern uint8_t systime_h;
+extern uint16_t systime_d;
 
 #endif // config_h__
