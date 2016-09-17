@@ -22,5 +22,5 @@ uint16_t lc_get(uint8_t lc_adc_mux) {
     adc_read(lc_adc_mux, lc_raw, LC_RAW_LEN);               // Get LC_RAW_LEN values from ADC
     data_insertion_sort_uint16(lc_raw, LC_RAW_LEN);    // Sort raw values from lowest to highest
     data_trim_uint16(lc_raw, lc_trim, LC_RAW_LEN, LC_TRIM_VAL);     // Eliminate 2 highest and 2 lowest values in array
-    return(data_2n_average(lc_trim, LC_TRIM_LEN));      // Average and return array
+    return(data_2n_average_uint16(lc_trim, LC_TRIM_LEN));      // Average and return array
 }

@@ -17,6 +17,8 @@
                                 
 #define PRINT_SYSTIME(interface)        { fprintf(interface, "\n%d %02d:%02d:%02d:%03d    ", systime_d, systime_h, systime_m, systime_s, systime_ms); }
 
+uint16_t lc_adc_val = 0;
+
 int main(void) {
     /* Initialization Routines */
     timer1_1ms_init();
@@ -28,6 +30,9 @@ int main(void) {
     PRINT_PROJECT_HEADER(STDIO_UART);
     
     while (1) {
+        lc_adc_val = lc_get(LC_ADC_40);        
         PRINT_SYSTIME(STDIO_UART);
+        fprintf(STDIO_UART, "Filtered 40Hz ADC read: %d", lc_adc_val);
+
     }
 }
