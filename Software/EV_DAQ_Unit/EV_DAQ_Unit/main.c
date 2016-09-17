@@ -15,7 +15,7 @@
                                           fprintf(interface, "\n    COPYRIGHT NOTICE: (c) 2016 John Fritz     ");\
                                           fprintf(interface, "\n==============================================\n"); }
                                 
-#define PRINT_SYSTIME(interface)        { fprintf(interface, "\n%d %02d:%02d:%02d:%03d    ", systck_d, systck_h, systck_m, systck_s, systck_ms); }
+#define PRINT_SYSTIME(interface)        { fprintf(interface, "\n%d %02d:%02d:%02d:%03d    ", systime_d, systime_h, systime_m, systime_s, systime_ms); }
 
 int main(void) {
     /* Initialization Routines */

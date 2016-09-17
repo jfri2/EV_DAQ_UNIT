@@ -80,3 +80,17 @@ void data_copy_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t data_len)
         data_to[i] = data_from[i];
     }
 }
+
+/*!
+* @brief Copy one uint16_t array to another smaller array (trim values from start and end of array)
+* @param[in] uint16_t *data_from   Pointer to array to copy data from
+* @param[in] uint16_t *data_to     Point to array to copy data to
+* @param[in] uint16_t raw_len      Length of data to copy, max 65535
+* @param[in] uint16_t trim_val      Amount to trim from both sides of array (ex. 2 will eliminate data_from[0, 1] and data_to[n, n-1])
+* @return void
+*/
+void data_trim_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t raw_len, uint16_t trim_val) {
+    for(uint16_t i=trim_val; i < (raw_len - trim_val); i++) {
+        data_to[i] = data_from[i];
+    }
+}

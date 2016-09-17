@@ -11,8 +11,16 @@
 
 /*!
 * @brief Identify the larger of two 8-bit numbers.
-* @param[in] num1    The first number to be compared.
-* @param[in] num2    The second number to be compared.
+* @param[in] uint8_t lc_adc_mux    Load Cell channel to read
 * @return int8_t
 */
-// TODO
+uint16_t lc_get(uint8_t lc_adc_mux) {
+    // Local variables
+    static uint16_t lc_raw[LC_RAW_LEN] = {0};       // Stores raw values read from ADC
+    static uint16_t lc_trim[LC_TRIM_LEN] = {0};     // Stores trimmed values read from ADC
+    
+    adc_read(lc_adc_mux, lc_raw, LC_RAW_LEN);               // Get LC_RAW_LEN values from ADC
+    data_insertion_sort_uint16(lc_raw, LC_RAW_LEN);    // Sort raw values from lowest to highest
+    data_trim_uint16(lc_raw, lc_trim, LC_RAW_LEN, LC_TRIM_VAL);     // Eliminate 2 highest and 2 lowest values in array
+    return(data_2n_average(lc_trim, LC_TRIM_LEN));      // Average and return array
+}

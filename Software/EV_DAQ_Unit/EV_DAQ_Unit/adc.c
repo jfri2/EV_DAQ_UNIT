@@ -25,11 +25,11 @@ void adc_init(uint8_t adc_dig_disable, uint8_t adc_div) {
 }
 
 /*!
-* @brief Identify the larger of two 8-bit numbers.
-* @param[in] adc_mux   Bitmask for ADC channels used (to disable digital input buffers)
+* @brief Read one value from ADC
+* @param[in] adc_mux   ADC channel to read
 * @return void
 */
-uint16_t adc_read(uint8_t adc_mux) {
+uint16_t adc_read_one(uint8_t adc_mux) {
     uint16_t adc_val = 0;
     static uint8_t adc_last_adcmux;     // Holds adc_mux value from previous function call
     
@@ -48,4 +48,17 @@ uint16_t adc_read(uint8_t adc_mux) {
     adc_val = (ADCH<<8);    // Read & store upper two bits of adc result
     
     return(adc_val);
+}
+
+/*!
+* @brief Read multiple values from ADC
+* @param[in] adc_mux    ADC channel to read
+* @param[in] *adc_val   Pointer to location to store data read from ADC
+* @param[in] *adc_val_len   Length of adc_val (number of reads to perform)
+* @return void
+*/
+void adc_read(uint8_t adc_mux, uint16_t *adc_val, uint16_t adc_val_len) {
+    for(uint16_t i=0; i < adc_val_len; i++) {
+        adc_val[i] = adc_read_one(adc_mux);
+    }
 }

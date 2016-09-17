@@ -47,12 +47,6 @@
 #define SW_1            (1<<PORTB0)
 #define SW_2            (1<<PORTB1)
 
-// Load Cell Definitions
-#define ADC6D           6
-#define ADC7D           7
-#define ADC_DIG_DIS_LC  ((1<<ADC6D) | (1<<ADC7D))
-#define LC_ADC_8K       ADC_MUX_ADC6
-#define LC_ADC_40       ADC_MUX_ADC7
 
 /* AVR Functions & Definitions*/
 #include <avr/io.h>
@@ -80,7 +74,7 @@
 #include "print.h"
 
 /* Global Variables */
-extern uint32_t systck;
+extern uint32_t systck;         // This will only overflow after ~50 days of being on
 extern uint16_t systime_ms;
 extern uint8_t systime_s;
 extern uint8_t systime_m;
