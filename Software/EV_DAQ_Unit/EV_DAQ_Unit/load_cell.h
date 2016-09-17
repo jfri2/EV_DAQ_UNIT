@@ -24,6 +24,8 @@
 // Macros & Functions
 #define lc_get_one(lc_adc_mux)  { adc_read(lc_adc_mux); }
 uint16_t lc_get(uint8_t lc_adc_mux);
+uint16_t lc_adc2force(uint16_t adc_val);
+uint16_t lc_force2torque(uint16_t force_val);
 
 // TODO Add functions for getting actual force & torque from load cell reads
 

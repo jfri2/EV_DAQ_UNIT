@@ -10,10 +10,11 @@
 #include "load_cell.h"
 
 /*!
-* @brief Identify the larger of two 8-bit numbers.
+* @brief Get processed ADC value from Load Cell
 * @param[in] uint8_t lc_adc_mux    Load Cell channel to read
-* @return int8_t
+* @return uint16_t
 */
+// TODO: This function would be more at home in the ADC module - need to move it over there
 uint16_t lc_get(uint8_t lc_adc_mux) {
     // Local variables
     static uint16_t lc_raw[LC_RAW_LEN] = {0};       // Stores raw values read from ADC
@@ -25,4 +26,22 @@ uint16_t lc_get(uint8_t lc_adc_mux) {
     return(data_2n_average_uint16(lc_trim, LC_TRIM_LEN));      // Average and return array
 }
 
-// TODO Add functions for getting actual force & torque from load cell reads
+/*!
+* @brief Get processed ADC value from Load Cell
+* @param[in] uint8_t lc_adc_mux    Load Cell channel to read
+* @return uint16_t
+*/
+uint16_t lc_adc2force(uint16_t adc_val) {
+    return(0);
+}
+
+/*!
+* @brief Get processed ADC value from Load Cell
+* @param[in] uint8_t lc_adc_mux    Load Cell channel to read
+* @return uint16_t
+*/
+uint16_t lc_force2torque(uint16_t force_val) {
+    return(0);
+}
+
+// TODO Define functions for getting actual force & torque from load cell reads
