@@ -36,5 +36,6 @@ int main(void) {
         
         
         // TODO Test & Everything else
+        // TODO Add state machine for general program flow
     }
 }
