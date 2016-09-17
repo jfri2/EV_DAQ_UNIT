@@ -6,8 +6,6 @@ adc.c
 
 data_utils.c
 
-ftdi.c
-
 gpio.c
 
 hall_effect.c

@@ -12,8 +12,8 @@ timer.d timer.o: .././timer.c .././timer.h .././EV_DAQ_Unit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  .././data_utils.h .././gpio.h .././i2c.h .././adc.h .././uart.h \
- .././lcd.h .././ftdi.h .././hall_effect.h .././pushbuttons.h \
- .././load_cell.h .././leds.h .././print.h \
+ .././lcd.h .././hall_effect.h .././pushbuttons.h .././load_cell.h \
+ .././leds.h .././print.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
@@ -57,8 +57,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././uart.h:
 
 .././lcd.h:
-
-.././ftdi.h:
 
 .././hall_effect.h:
 

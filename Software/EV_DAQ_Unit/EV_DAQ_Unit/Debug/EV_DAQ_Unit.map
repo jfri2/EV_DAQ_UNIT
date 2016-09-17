@@ -39,16 +39,6 @@ Discarded input sections
  .bss           0x00000000        0x0 data_utils.o
  .text.data_copy_uint16
                 0x00000000       0x24 data_utils.o
- .text          0x00000000        0x0 ftdi.o
- .data          0x00000000        0x0 ftdi.o
- .bss           0x00000000        0x0 ftdi.o
- .debug_info    0x00000000      0x13f ftdi.o
- .debug_abbrev  0x00000000       0xad ftdi.o
- .debug_aranges
-                0x00000000       0x18 ftdi.o
- .debug_line    0x00000000       0x97 ftdi.o
- .debug_str     0x00000000      0x1b7 ftdi.o
- .comment       0x00000000       0x31 ftdi.o
  .text          0x00000000        0x0 gpio.o
  .data          0x00000000        0x0 gpio.o
  .bss           0x00000000        0x0 gpio.o
@@ -264,7 +254,6 @@ Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
 LOAD adc.o
 LOAD data_utils.o
-LOAD ftdi.o
 LOAD gpio.o
 LOAD hall_effect.o
 LOAD i2c.o

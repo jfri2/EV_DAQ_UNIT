@@ -39,7 +39,6 @@ SUBDIRS :=
 C_SRCS +=  \
 ../adc.c \
 ../data_utils.c \
-../ftdi.c \
 ../gpio.c \
 ../hall_effect.c \
 ../i2c.c \
@@ -63,7 +62,6 @@ ASM_SRCS +=
 OBJS +=  \
 adc.o \
 data_utils.o \
-ftdi.o \
 gpio.o \
 hall_effect.o \
 i2c.o \
@@ -80,7 +78,6 @@ wdt.o
 OBJS_AS_ARGS +=  \
 adc.o \
 data_utils.o \
-ftdi.o \
 gpio.o \
 hall_effect.o \
 i2c.o \
@@ -97,7 +94,6 @@ wdt.o
 C_DEPS +=  \
 adc.d \
 data_utils.d \
-ftdi.d \
 gpio.d \
 hall_effect.d \
 i2c.d \
@@ -114,7 +110,6 @@ wdt.d
 C_DEPS_AS_ARGS +=  \
 adc.d \
 data_utils.d \
-ftdi.d \
 gpio.d \
 hall_effect.d \
 i2c.d \
@@ -142,8 +137,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-
-
 
 
 

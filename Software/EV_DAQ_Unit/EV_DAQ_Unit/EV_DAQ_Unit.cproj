@@ -144,14 +144,6 @@
       <SubType>compile</SubType>
       <Link>EV_DAQ_Unit.h</Link>
     </Compile>
-    <Compile Include="ftdi.c">
-      <SubType>compile</SubType>
-      <Link>ftdi.c</Link>
-    </Compile>
-    <Compile Include="ftdi.h">
-      <SubType>compile</SubType>
-      <Link>ftdi.h</Link>
-    </Compile>
     <Compile Include="gpio.c">
       <SubType>compile</SubType>
       <Link>gpio.c</Link>
