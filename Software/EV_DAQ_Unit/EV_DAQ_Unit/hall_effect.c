@@ -1,4 +1,4 @@
-/** @file module.c
+/** @file hall_effect.c
 *
 * @brief A description of the module's purpose.
 *

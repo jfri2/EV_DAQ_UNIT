@@ -1,4 +1,4 @@
-/** @file module.c
+/** @file load_cell.c
 *
 * @brief A description of the module's purpose.
 *

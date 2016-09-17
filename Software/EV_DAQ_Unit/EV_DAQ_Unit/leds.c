@@ -1,4 +1,4 @@
-/** @file module.c
+/** @file leds.c
 *
 * @brief A description of the module's purpose.
 *
