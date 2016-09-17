@@ -29,7 +29,7 @@ int main(void) {
     
     PRINT_PROJECT_HEADER(STDIO_UART);
     
-    while (1) {
+    while(1) {
         lc_adc_val = lc_get(LC_ADC_40);        
         PRINT_SYSTIME(STDIO_UART);
         fprintf(STDIO_UART, "Filtered 40Hz ADC read: %d", lc_adc_val);

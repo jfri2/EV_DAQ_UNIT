@@ -19,3 +19,5 @@ uint8_t uart0_get(void);
 void uart0_gets(uint8_t *ch, uint8_t ch_len);
 
 #endif // uart_h__
+
+// TODO add hardware flow control things to functions for use with things like FTDI

@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000102c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000001a0  00000000  00000000  0000106c  2**0
+  5 .debug_aranges 000001b0  00000000  00000000  0000106c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001431  00000000  00000000  0000120c  2**0
+  6 .debug_info   0000148d  00000000  00000000  0000121c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a60  00000000  00000000  0000263d  2**0
+  7 .debug_abbrev 00000a60  00000000  00000000  000026a9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000893  00000000  00000000  0000309d  2**0
+  8 .debug_line   000008b3  00000000  00000000  00003109  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000003cc  00000000  00000000  00003930  2**2
+  9 .debug_frame  000003ec  00000000  00000000  000039bc  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000514  00000000  00000000  00003cfc  2**0
+ 10 .debug_str    0000053b  00000000  00000000  00003da8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000f0a  00000000  00000000  00004210  2**0
+ 11 .debug_loc    00000f56  00000000  00000000  000042e3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000160  00000000  00000000  0000511a  2**0
+ 12 .debug_ranges 00000170  00000000  00000000  00005239  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -503,10 +503,10 @@ uint16_t data_2n_average_uint16(uint16_t *data, uint16_t data_len) {
  29c:	e7 cf       	rjmp	.-50     	; 0x26c <data_2n_average_uint16+0x42>
 
 0000029e <data_trim_uint16>:
-* @param[in] uint16_t raw_len      Length of data to copy, max 65535
 * @param[in] uint16_t trim_val      Amount to trim from both sides of array (ex. 2 will eliminate data_from[0, 1] and data_to[n, n-1])
 * @return void
 */
+// TODO: test this function. trim_val in the for loop may need to be altered
 void data_trim_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t raw_len, uint16_t trim_val) {
     for(uint16_t i=trim_val; i < (raw_len - trim_val); i++) {
  29e:	42 1b       	sub	r20, r18
@@ -531,10 +531,10 @@ void data_trim_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t raw_len, 
  2c2:	31 91       	ld	r19, Z+
  2c4:	2d 93       	st	X+, r18
  2c6:	3d 93       	st	X+, r19
-* @param[in] uint16_t raw_len      Length of data to copy, max 65535
 * @param[in] uint16_t trim_val      Amount to trim from both sides of array (ex. 2 will eliminate data_from[0, 1] and data_to[n, n-1])
 * @return void
 */
+// TODO: test this function. trim_val in the for loop may need to be altered
 void data_trim_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t raw_len, uint16_t trim_val) {
     for(uint16_t i=trim_val; i < (raw_len - trim_val); i++) {
  2c8:	e8 17       	cp	r30, r24
@@ -1001,7 +1001,7 @@ int main(void) {
  594:	92 e0       	ldi	r25, 0x02	; 2
  596:	0e 94 fc 03 	call	0x7f8	; 0x7f8 <fwrite>
     
-    while (1) {
+    while(1) {
         lc_adc_val = lc_get(LC_ADC_40);        
         PRINT_SYSTIME(STDIO_UART);
  59a:	0f 2e       	mov	r0, r31
@@ -1019,7 +1019,7 @@ int main(void) {
     
     PRINT_PROJECT_HEADER(STDIO_UART);
     
-    while (1) {
+    while(1) {
         lc_adc_val = lc_get(LC_ADC_40);        
  5ae:	87 e0       	ldi	r24, 0x07	; 7
  5b0:	0e 94 4e 02 	call	0x49c	; 0x49c <lc_get>
@@ -1058,7 +1058,10 @@ int main(void) {
  608:	df 93       	push	r29
  60a:	cf 93       	push	r28
  60c:	0e 94 ea 03 	call	0x7d4	; 0x7d4 <fprintf>
-
+        
+        
+        // TODO Test & Everything else
+        // TODO Add state machine for general program flow
     }
  610:	8d b7       	in	r24, 0x3d	; 61
  612:	9e b7       	in	r25, 0x3e	; 62

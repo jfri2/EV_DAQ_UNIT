@@ -41,4 +41,3 @@ uint8_t stdio_lcd_put(uint8_t ch, FILE *stream) {
     return(0);
 }
 
-// TODO update this module to work with FTDI rather than direct UART

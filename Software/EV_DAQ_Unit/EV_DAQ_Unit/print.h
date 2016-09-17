@@ -27,6 +27,5 @@ static FILE stdio_lcd = FDEV_SETUP_STREAM(stdio_lcd_put, NULL, _FDEV_SETUP_WRITE
 #define STDIO_UART  (&stdio_uart)
 #define STDIO_LCD   (&stdio_lcd)
 
-// TODO update this module to work with FTDI rather than direct UART
 
 #endif // print_h__

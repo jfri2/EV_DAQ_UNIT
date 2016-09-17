@@ -66,7 +66,6 @@
 
 /* Project Components */
 #include "lcd.h"
-#include "ftdi.h"
 #include "hall_effect.h"
 #include "pushbuttons.h"
 #include "load_cell.h"

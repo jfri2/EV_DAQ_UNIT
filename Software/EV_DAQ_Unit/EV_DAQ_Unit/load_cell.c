@@ -14,7 +14,6 @@
 * @param[in] uint8_t lc_adc_mux    Load Cell channel to read
 * @return uint16_t
 */
-// TODO: This function would be more at home in the ADC module - need to move it over there
 uint16_t lc_get(uint8_t lc_adc_mux) {
     // Local variables
     static uint16_t lc_raw[LC_RAW_LEN] = {0};       // Stores raw values read from ADC
