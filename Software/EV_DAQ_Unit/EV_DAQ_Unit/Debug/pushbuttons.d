@@ -1,5 +1,5 @@
 pushbuttons.d pushbuttons.o: .././pushbuttons.c .././pushbuttons.h \
- .././config.h \
+ .././EV_DAQ_Unit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -21,7 +21,7 @@ pushbuttons.d pushbuttons.o: .././pushbuttons.c .././pushbuttons.h \
 
 .././pushbuttons.h:
 
-.././config.h:
+.././EV_DAQ_Unit.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

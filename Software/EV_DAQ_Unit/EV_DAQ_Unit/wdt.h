@@ -9,7 +9,7 @@
 #ifndef wdt_h__
 #define wdt_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 // TODO
 

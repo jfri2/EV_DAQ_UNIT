@@ -90,7 +90,7 @@ uint8_t i2c1_write(uint8_t i2c_device_addr, uint8_t *p_i2c_data, uint32_t num_i2
 
 /*!
 * @brief Write data to an I2C slave device
-* @param[in] i2c_device_addr   I2C Device Address (7-bit, right justified)
+* @param[in] i2c_device_addr   I2C Device Address (7-bit, left justified)
 * @param[in] p_i2c_data_in     Pointer to bytes to send over I2C
 * @param[in] p_i2c_data_out    Pointer to location to store read I2C data
 * @param[in] num_i2c_bytes     Number of data bytes to read from I2C device; length(p_i2c_data_in)=length(p_i2c_data_out)
@@ -106,7 +106,7 @@ uint8_t i2c1_read(uint8_t i2c_device_addr, uint8_t *p_i2c_data_in, uint8_t *p_i2
     }
     
     // I2C SLA+R/W
-    TWDR1 = ((i2c_device_addr<<1) | I2C_READ);    // Set destination addr to device addr (7-bit, left justified), set I2C read condition
+    TWDR1 = ((i2c_device_addr) | I2C_READ);    // Set destination addr to device addr (7-bit, left justified), set I2C read condition
     i2c_status = i2c1_tx(I2C_DATA);
     if(i2c_status != I2C_STATUS_DATA_ACK) {
         return(i2c_status | I2C_STATUS_FAIL_MASK);    // Break from function if I2C data ack isn't reflected in status reg

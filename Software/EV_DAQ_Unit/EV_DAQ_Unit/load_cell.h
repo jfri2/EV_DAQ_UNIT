@@ -9,7 +9,7 @@
 #ifndef load_cell_h__
 #define load_cell_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 // TODO
 

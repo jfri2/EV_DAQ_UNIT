@@ -9,7 +9,7 @@
 #ifndef pushbuttons_h__
 #define pushbuttons_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 // TODO
 

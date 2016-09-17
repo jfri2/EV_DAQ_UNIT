@@ -94,7 +94,7 @@ Discarded input sections
  .text.i2c1_write
                 0x00000000       0xa8 i2c.o
  .text.i2c1_read
-                0x00000000       0xcc i2c.o
+                0x00000000       0xca i2c.o
  .text          0x00000000        0x0 lcd.o
  .data          0x00000000        0x0 lcd.o
  .bss           0x00000000        0x0 lcd.o
@@ -301,6 +301,9 @@ LOAD uart.o
 LOAD wdt.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libprintf_min.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libscanf_min.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libprintf_flt.a
 END GROUP
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a
@@ -747,15 +750,15 @@ END GROUP
  .debug_abbrev  0x00000527      0x12c timer.o
  .debug_abbrev  0x00000653       0xf8 uart.o
 
-.debug_line     0x00000000      0x63d
+.debug_line     0x00000000      0x642
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000       0xc0 adc.o
  .debug_line    0x000000c0      0x12a i2c.o
  .debug_line    0x000001ea       0xaf lcd.o
- .debug_line    0x00000299       0xd2 main.o
- .debug_line    0x0000036b       0xde print.o
- .debug_line    0x00000449       0xec timer.o
- .debug_line    0x00000535      0x108 uart.o
+ .debug_line    0x00000299       0xd7 main.o
+ .debug_line    0x00000370       0xde print.o
+ .debug_line    0x0000044e       0xec timer.o
+ .debug_line    0x0000053a      0x108 uart.o
 
 .debug_frame    0x00000000      0x2bc
  *(.debug_frame)

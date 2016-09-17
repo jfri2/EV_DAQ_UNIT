@@ -9,7 +9,7 @@
 #ifndef leds_h__
 #define leds_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 // TODO
 

@@ -1,5 +1,5 @@
 hall_effect.d hall_effect.o: .././hall_effect.c .././hall_effect.h \
- .././config.h \
+ .././EV_DAQ_Unit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -21,7 +21,7 @@ hall_effect.d hall_effect.o: .././hall_effect.c .././hall_effect.h \
 
 .././hall_effect.h:
 
-.././config.h:
+.././EV_DAQ_Unit.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

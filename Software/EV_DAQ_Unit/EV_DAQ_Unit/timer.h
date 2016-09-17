@@ -10,10 +10,10 @@
 #ifndef timer_h__
 #define timer_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 #ifndef F_CPU
-#error "Define F_CPU in config.h"
+#error "Define F_CPU in EV_DAQ_Unit.h"
 #endif
 
 #if ((F_CPU != 16000000) && (F_CPU != 16000000L) && (F_CPU != 16000000UL))

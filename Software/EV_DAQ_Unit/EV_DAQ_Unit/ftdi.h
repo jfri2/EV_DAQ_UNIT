@@ -9,7 +9,7 @@
 #ifndef ftdi_h__
 #define ftdi_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 
 // TODO

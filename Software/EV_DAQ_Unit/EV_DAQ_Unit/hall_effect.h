@@ -9,7 +9,7 @@
 #ifndef hall_effect_h__
 #define hall_effect_h__
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
 
 

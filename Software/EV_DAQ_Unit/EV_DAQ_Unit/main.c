@@ -5,17 +5,17 @@
  * Author : John
  */ 
 
-#include "config.h"
+#include "EV_DAQ_Unit.h"
 
-#define PRINT_PROJECT_HEADER(interface) fprintf(interface,  "\n==============================================");\
-                                        fprintf(interface, "\n                   DEBUG BUILD                ");\
-                                        fprintf(interface, "\n                                              ");\
-                                        fprintf(interface, "\n----ELECTRIC VEHICLE DATA ACQUISITION UNIT----");\
-                                        fprintf(interface, "\n                                              ");\
-                                        fprintf(interface, "\n    COPYRIGHT NOTICE: (c) 2016 John Fritz     ");\
-                                        fprintf(interface, "\n==============================================\n")
+#define PRINT_PROJECT_HEADER(interface) { fprintf(interface, "\n==============================================");\
+                                          fprintf(interface, "\n                   DEBUG BUILD                ");\
+                                          fprintf(interface, "\n                                              ");\
+                                          fprintf(interface, "\n----ELECTRIC VEHICLE DATA ACQUISITION UNIT----");\
+                                          fprintf(interface, "\n                                              ");\
+                                          fprintf(interface, "\n    COPYRIGHT NOTICE: (c) 2016 John Fritz     ");\
+                                          fprintf(interface, "\n==============================================\n"); }
                                 
-#define PRINT_SYSTIME(interface) fprintf(interface, "\n%d %02d:%02d:%02d:%03d    ", systck_d, systck_h, systck_m, systck_s, systck_ms);
+#define PRINT_SYSTIME(interface)        { fprintf(interface, "\n%d %02d:%02d:%02d:%03d    ", systck_d, systck_h, systck_m, systck_s, systck_ms); }
 
 int main(void) {
     /* Initialization Routines */

@@ -1,4 +1,4 @@
-leds.d leds.o: .././leds.c .././leds.h .././config.h \
+leds.d leds.o: .././leds.c .././leds.h .././EV_DAQ_Unit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -20,7 +20,7 @@ leds.d leds.o: .././leds.c .././leds.h .././config.h \
 
 .././leds.h:
 
-.././config.h:
+.././EV_DAQ_Unit.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

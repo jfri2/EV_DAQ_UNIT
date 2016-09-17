@@ -1,4 +1,5 @@
-load_cell.d load_cell.o: .././load_cell.c .././load_cell.h .././config.h \
+load_cell.d load_cell.o: .././load_cell.c .././load_cell.h \
+ .././EV_DAQ_Unit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -20,7 +21,7 @@ load_cell.d load_cell.o: .././load_cell.c .././load_cell.h .././config.h \
 
 .././load_cell.h:
 
-.././config.h:
+.././EV_DAQ_Unit.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
