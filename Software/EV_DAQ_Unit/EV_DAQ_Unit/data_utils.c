@@ -89,6 +89,7 @@ void data_copy_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t data_len)
 * @param[in] uint16_t trim_val      Amount to trim from both sides of array (ex. 2 will eliminate data_from[0, 1] and data_to[n, n-1])
 * @return void
 */
+// TODO: test this function. trim_val in the for loop may need to be altered
 void data_trim_uint16(uint16_t *data_from, uint16_t *data_to, uint16_t raw_len, uint16_t trim_val) {
     for(uint16_t i=trim_val; i < (raw_len - trim_val); i++) {
         data_to[i] = data_from[i];
