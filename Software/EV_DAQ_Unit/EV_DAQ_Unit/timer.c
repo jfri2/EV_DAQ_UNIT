@@ -10,7 +10,7 @@
 #include "timer.h"
 
 /* systck (Global) Definitions */
-uint64_t systck = 0;
+uint32_t systck = 0;
 uint16_t systime_ms = 0;
 uint8_t systime_s = 0;
 uint8_t systime_m = 0;

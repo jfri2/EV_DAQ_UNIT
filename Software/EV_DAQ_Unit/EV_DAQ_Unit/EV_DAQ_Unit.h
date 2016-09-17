@@ -80,7 +80,7 @@
 #include "print.h"
 
 /* Global Variables */
-extern uint64_t systck;
+extern uint32_t systck;
 extern uint16_t systime_ms;
 extern uint8_t systime_s;
 extern uint8_t systime_m;

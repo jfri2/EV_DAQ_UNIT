@@ -14,5 +14,6 @@
 * @return void
 */
 void lcd_init(void) {
-    //TODO
+    uint8_t *
+    i2c1_write(LCD_I2C_ADDR, lcd_init_1, 3);
 }
