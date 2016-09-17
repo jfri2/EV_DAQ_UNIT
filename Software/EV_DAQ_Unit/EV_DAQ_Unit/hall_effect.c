@@ -15,4 +15,5 @@
 * @param[in] num2    The second number to be compared.
 * @return int8_t
 */
-// TODO
+// TODO add IRQ handler & initializer for Pin-change interrupts
+// TODO add functions for determining speed based off of PCINT IRQ handler

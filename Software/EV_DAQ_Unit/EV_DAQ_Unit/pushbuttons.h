@@ -11,6 +11,6 @@
 
 #include "EV_DAQ_Unit.h"
 
-// TODO
+// TODO add pushbutton functionality including some form of software debounce
 
 #endif // pushbuttons_h__

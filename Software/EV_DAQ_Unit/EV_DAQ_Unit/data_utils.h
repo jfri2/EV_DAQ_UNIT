@@ -1,5 +1,5 @@
 /** @file data_utils.h
-* @brief Contains insertion sort and averaging algorithms
+* @brief Contains various data processing utilities
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz

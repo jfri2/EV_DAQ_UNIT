@@ -1,6 +1,6 @@
 /** @file lcd.c
 *
-* @brief A description of the module's purpose.
+* @brief Functions and definitions for the TODO LCD
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz

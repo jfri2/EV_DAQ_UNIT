@@ -15,4 +15,4 @@
 * @param[in] num2    The second number to be compared.
 * @return int8_t
 */
-// TODO
+// TODO Add status LED functionality

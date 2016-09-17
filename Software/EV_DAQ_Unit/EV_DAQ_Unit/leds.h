@@ -11,6 +11,6 @@
 
 #include "EV_DAQ_Unit.h"
 
-// TODO
+// TODO Add status LED functionality
 
 #endif // leds_h__

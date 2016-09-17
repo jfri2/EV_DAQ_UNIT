@@ -1,5 +1,5 @@
 /** @file load_cell.h
-* @brief A description of the module's purpose.
+* @brief Various functions for reading and interpreting data pertaining to the TODO Load Cell
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz
@@ -25,5 +25,6 @@
 #define lc_get_one(lc_adc_mux)  { adc_read(lc_adc_mux); }
 uint16_t lc_get(uint8_t lc_adc_mux);
 
+// TODO Add functions for getting actual force & torque from load cell reads
 
 #endif // load_cell_h__

@@ -1,6 +1,6 @@
 /** @file load_cell.c
 *
-* @brief A description of the module's purpose.
+* @brief Various functions for reading and interpreting data pertaining to the TODO Load Cell
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz
@@ -24,3 +24,5 @@ uint16_t lc_get(uint8_t lc_adc_mux) {
     data_trim_uint16(lc_raw, lc_trim, LC_RAW_LEN, LC_TRIM_VAL);     // Eliminate 2 highest and 2 lowest values in array
     return(data_2n_average_uint16(lc_trim, LC_TRIM_LEN));      // Average and return array
 }
+
+// TODO Add functions for getting actual force & torque from load cell reads

@@ -1,5 +1,5 @@
 /** @file lcd.h
-* @brief A description of the module's purpose.
+* @brief Functions and definitions for the TODO LCD
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz
@@ -21,12 +21,13 @@
 #define LCD_CTRL_DW         0x40        // LCD control byte data write operation mask
 #define LCD_CTRL_DW_LAST    0xC0        // LCD control byte data write operation mask (Last Control Byte Sent)
 
-
-
+// LCD Functions
 void lcd_init();
 void lcd_stdio_assign();
 void lcd_set_line_1();
 void lcd_set_line_2();
+
+// TODO Add & define more LCD functions
 
 #endif // lcd_h__
 

@@ -11,6 +11,6 @@
 
 #include "EV_DAQ_Unit.h"
 
-// TODO
+// TODO add watchdog timer to project
 
 #endif // lcd_h__

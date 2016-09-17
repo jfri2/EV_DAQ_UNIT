@@ -15,4 +15,5 @@
 * @param[in] num2    The second number to be compared.
 * @return int8_t
 */
-// TODO
+// TODO add FTDI R/W for UART to/from USB
+// TODO update Serial module to work with this module rather than directly with the uart module

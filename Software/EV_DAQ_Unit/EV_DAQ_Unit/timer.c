@@ -52,4 +52,3 @@ void timer1_1ms_init(void) {
     OCR1A = timer1_1ms_compare_value;    
     timer1_enable();
 }
-

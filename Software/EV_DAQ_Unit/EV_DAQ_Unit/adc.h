@@ -1,5 +1,5 @@
 /** @file adc.h
-* @brief A description of the module's purpose.
+* @brief ATMEGA328PB internal Analog to Digital Converter driver
 *
 * @par
 * COPYRIGHT NOTICE: (c) 2016 John Fritz

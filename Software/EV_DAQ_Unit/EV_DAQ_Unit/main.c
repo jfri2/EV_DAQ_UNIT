@@ -33,6 +33,8 @@ int main(void) {
         lc_adc_val = lc_get(LC_ADC_40);        
         PRINT_SYSTIME(STDIO_UART);
         fprintf(STDIO_UART, "Filtered 40Hz ADC read: %d", lc_adc_val);
-
+        
+        
+        // TODO Test & Everything else
     }
 }

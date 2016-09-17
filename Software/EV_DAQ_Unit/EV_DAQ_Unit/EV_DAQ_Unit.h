@@ -81,4 +81,6 @@ extern uint8_t systime_m;
 extern uint8_t systime_h;
 extern uint16_t systime_d;
 
+// TODO eventually add bootloader?
+
 #endif // config_h__
