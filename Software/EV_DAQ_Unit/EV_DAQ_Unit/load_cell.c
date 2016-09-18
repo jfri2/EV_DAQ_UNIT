@@ -25,22 +25,34 @@ uint16_t lc_get(uint8_t lc_adc_mux) {
     return(data_2n_average_uint16(lc_trim, LC_TRIM_LEN));      // Average and return array
 }
 
+/* Load Cell Specs 
+*   10 V excitation, 3mV/V
+*   Default torque arm length = 0.25 meters
+*   200 lbs = 30 mV * 100(Av) = 3 V
+*   3V / 1024 = .00292969 V per bit (+/- 2 LSB absolute accuracy)
+*   200 lbsf / 1024 = 0.1953125 lbsf per bit (+/- 2 LSB absolute accuracy)
+*   889.6443 N / 1024 = 0.86879326 N per bit (+/- 2 LSB absolute accuracy)
+*/         
+
+
+
 /*!
-* @brief Get processed ADC value from Load Cell
-* @param[in] uint8_t lc_adc_mux    Load Cell channel to read
-* @return uint16_t
+* @brief Calculate force (Newtons)
+* @param[in] float adc_val    10 bit value from ADC
+* @return float
 */
-uint16_t lc_adc2force(uint16_t adc_val) {
-    return(0);
+float lc_adc2force(uint16_t adc_val) {
+    return((float)(adc_val * 0.86879));
 }
 
 /*!
-* @brief Get processed ADC value from Load Cell
-* @param[in] uint8_t lc_adc_mux    Load Cell channel to read
-* @return uint16_t
+* @brief Calculates torque
+* @param[in] float force_val  Force value
+* @param[in] float t_len      Length of torque arm
+* @return float
 */
-uint16_t lc_force2torque(uint16_t force_val) {
-    return(0);
+float lc_force2torque(float force_val, float t_len) {
+    return(force_val * t_len);
 }
 
 // TODO Define functions for getting actual force & torque from load cell reads

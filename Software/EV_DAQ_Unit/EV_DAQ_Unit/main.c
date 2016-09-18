@@ -34,7 +34,6 @@ int main(void) {
         PRINT_SYSTIME(STDIO_UART);
         fprintf(STDIO_UART, "Filtered 40Hz ADC read: %d", lc_adc_val);
         
-        
         // TODO Test & Everything else
         // TODO Add state machine for general program flow
     }

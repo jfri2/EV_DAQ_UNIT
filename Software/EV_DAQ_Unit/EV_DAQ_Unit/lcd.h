@@ -12,6 +12,12 @@
 
 #include "EV_DAQ_Unit.h"
 
+// LCD Definitions
+#define LCD_DEV_ADDR    0b00000001
+#define LCD_RST_DDR     DDRB
+#define LCD_RST_PORT    PORTB
+#define LCD_RST         (1<<PORTB2)
+
 // LCD I2C Address
 #define LCD_I2C_ADDR        0x7C        // Left justified LCD I2C address
 

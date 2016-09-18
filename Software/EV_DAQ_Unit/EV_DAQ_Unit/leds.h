@@ -11,6 +11,12 @@
 
 #include "EV_DAQ_Unit.h"
 
+// LED Definitions
+#define LED_DDR         DDRD
+#define LED_PORT        PORTD
+#define LED_RED         (1<<PORTD6)
+#define LED_GRN         (1<<PORTD7)
+
 // TODO Add status LED functionality
 
 #endif // leds_h__

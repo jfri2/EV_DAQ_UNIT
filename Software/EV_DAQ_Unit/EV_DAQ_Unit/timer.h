@@ -23,6 +23,14 @@
 /* Definitions */
 #define TIMER1_PRESCALE_MASK  ((1<<CS11) | (1<<CS10))
 
+/* Global Variables */
+extern uint32_t systck;         // This will only overflow after ~50 days of being on
+extern uint16_t systime_ms;
+extern uint8_t systime_s;
+extern uint8_t systime_m;
+extern uint8_t systime_h;
+extern uint16_t systime_d;
+
 /*!
 * @brief Enable timer1 and timer1 interrupts
 * @return void

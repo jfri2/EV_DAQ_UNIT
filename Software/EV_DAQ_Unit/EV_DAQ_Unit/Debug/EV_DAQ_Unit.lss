@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000001b0  00000000  00000000  0000106c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000148d  00000000  00000000  0000121c  2**0
+  6 .debug_info   000014a3  00000000  00000000  0000121c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a60  00000000  00000000  000026a9  2**0
+  7 .debug_abbrev 00000a7c  00000000  00000000  000026bf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000008b3  00000000  00000000  00003109  2**0
+  8 .debug_line   000008a5  00000000  00000000  0000313b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000003ec  00000000  00000000  000039bc  2**2
+  9 .debug_frame  000003ec  00000000  00000000  000039e0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000053b  00000000  00000000  00003da8  2**0
+ 10 .debug_str    00000547  00000000  00000000  00003dcc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000f56  00000000  00000000  000042e3  2**0
+ 11 .debug_loc    00000f9c  00000000  00000000  00004313  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000170  00000000  00000000  00005239  2**0
+ 12 .debug_ranges 00000170  00000000  00000000  000052af  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1058,7 +1058,6 @@ int main(void) {
  608:	df 93       	push	r29
  60a:	cf 93       	push	r28
  60c:	0e 94 ea 03 	call	0x7d4	; 0x7d4 <fprintf>
-        
         
         // TODO Test & Everything else
         // TODO Add state machine for general program flow

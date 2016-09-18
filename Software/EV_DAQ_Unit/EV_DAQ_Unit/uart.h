@@ -12,6 +12,13 @@
 
 #include <avr/io.h>
 
+// UART & FTDI Definitions
+#define UART_BAUD       115200
+#define UART_DDR        DDRD
+#define UART_PORT       PORTD
+#define UART_RTS        (1<<PORTD2)
+#define UART_CTS        (1<<PORTD3)
+
 void uart0_init(uint32_t cpu_freq, uint32_t uart_baud);
 void uart0_put(uint8_t ch);
 void uart0_puts(uint8_t *ch, uint8_t ch_len);
