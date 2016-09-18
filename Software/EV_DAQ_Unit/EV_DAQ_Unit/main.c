@@ -22,7 +22,7 @@ uint16_t lc_adc_val = 0;
 int main(void) {
     /* Initialization Routines */
     timer1_1ms_init();
-    uart0_init(F_CPU, UART_BAUD);
+    uart0_init(F_CPU, UART_BAUD, TRUE);
     i2c1_init(F_CPU, I2C_SCL_FREQ);
     adc_init((ADC_DIG_DIS_LC | ADC_DIG_DIS_HE), ADC_DIV_128);
     lcd_init();

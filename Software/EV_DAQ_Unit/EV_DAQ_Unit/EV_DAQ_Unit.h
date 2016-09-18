@@ -9,7 +9,7 @@
 #ifndef config_h__
 #define config_h__
 
-// Clock Definitions
+/* Clock Definitions */
 #define F_CPU           16000000
 #define I2C_SCL_FREQ    100000
 
@@ -19,6 +19,7 @@
 
 /* Utilities */
 #include "data_utils.h"
+#include "data_types.h"
 
 /* Project Drivers */
 #include "gpio.h"

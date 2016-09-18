@@ -16,7 +16,7 @@
 * @return uint8_t
 */
 uint8_t stdio_uart_put(uint8_t ch, FILE *stream) {
-    uart0_put(ch);
+    uart0_put(ch, TRUE);
     return(0);
 }
 
@@ -26,7 +26,7 @@ uint8_t stdio_uart_put(uint8_t ch, FILE *stream) {
 * @return uint8_t
 */
 uint8_t stdio_uart_get(FILE *stream) {
-    uint8_t ch = uart0_get();
+    uint8_t ch = uart0_get(TRUE);
     return(ch);
 }
 
