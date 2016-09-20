@@ -1322,9 +1322,9 @@ void uart0_init(uint32_t cpu_freq, uint32_t uart_baud, bool b_flow_ctrl) {
  772:	20 93 c4 00 	sts	0x00C4, r18
     
     // Initialize hardware flow control gpio
-    if(b_flow_ctrl == TRUE) {
- 776:	01 30       	cpi	r16, 0x01	; 1
- 778:	29 f4       	brne	.+10     	; 0x784 <uart0_init+0x56>
+    if(b_flow_ctrl != FALSE) {
+ 776:	00 23       	and	r16, r16
+ 778:	29 f0       	breq	.+10     	; 0x784 <uart0_init+0x56>
         UART_DDR |= UART_RTS;   // Set UART RTS as output
  77a:	52 9a       	sbi	0x0a, 2	; 10
         UART_DDR &= ~UART_CTS;  // Set UART CTS as input
@@ -1484,9 +1484,9 @@ uint8_t uart0_put(uint8_t ch, bool b_flow_ctrl) {
 * @param[in] bool b_flow_ctrl    HW Flow control used? (T/F)
 */
 uint8_t uart0_get(bool b_flow_ctrl) {
-    if(b_flow_ctrl == TRUE) {
- 81a:	81 30       	cpi	r24, 0x01	; 1
- 81c:	41 f4       	brne	.+16     	; 0x82e <uart0_get+0x14>
+    if(b_flow_ctrl != FALSE) {
+ 81a:	88 23       	and	r24, r24
+ 81c:	41 f0       	breq	.+16     	; 0x82e <uart0_get+0x14>
         // TODO
         while((UCSR0A & (1<<RXC0)) == 0x00);    // Wait until rx char flag is set
  81e:	e0 ec       	ldi	r30, 0xC0	; 192

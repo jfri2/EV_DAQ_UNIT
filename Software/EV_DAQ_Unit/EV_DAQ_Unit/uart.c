@@ -29,7 +29,7 @@ void uart0_init(uint32_t cpu_freq, uint32_t uart_baud, bool b_flow_ctrl) {
     UBRR0L = (((cpu_freq/uart_baud)/32)-1);     // Set baud rate div (lower register)   
     
     // Initialize hardware flow control gpio
-    if(b_flow_ctrl == TRUE) {
+    if(b_flow_ctrl != FALSE) {
         UART_DDR |= UART_RTS;   // Set UART RTS as output
         UART_DDR &= ~UART_CTS;  // Set UART CTS as input
         UART_PORT |= (UART_CTS | UART_RTS);  // Turn CTS pullup resistors on, tells host cannot accept data
@@ -92,7 +92,7 @@ uint8_t uart0_puts(uint8_t *ch, uint8_t ch_len, bool b_flow_ctrl) {
 * @param[in] bool b_flow_ctrl    HW Flow control used? (T/F)
 */
 uint8_t uart0_get(bool b_flow_ctrl) {
-    if(b_flow_ctrl == TRUE) {
+    if(b_flow_ctrl != FALSE) {
         // TODO
         while((UCSR0A & (1<<RXC0)) == 0x00);    // Wait until rx char flag is set
         return(UDR0);
