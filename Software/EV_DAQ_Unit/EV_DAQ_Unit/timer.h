@@ -24,12 +24,12 @@
 #define TIMER1_PRESCALE_MASK  ((1<<CS11) | (1<<CS10))
 
 /* Global Variables */
-extern uint32_t systck;         // This will only overflow after ~50 days of being on
-extern uint16_t systime_ms;
-extern uint8_t systime_s;
-extern uint8_t systime_m;
-extern uint8_t systime_h;
-extern uint16_t systime_d;
+extern volatile uint32_t systck;         // This will only overflow after ~50 days of being on
+extern volatile uint16_t systime_ms;
+extern volatile uint8_t systime_s;
+extern volatile uint8_t systime_m;
+extern volatile uint8_t systime_h;
+extern volatile uint16_t systime_d;
 
 /*!
 * @brief Enable timer1 and timer1 interrupts
@@ -50,5 +50,6 @@ inline void timer1_disable(void) {
 }
 
 void timer1_1ms_init(void);
+void delay(uint16_t delay_ms);
 
 #endif // timer_h__

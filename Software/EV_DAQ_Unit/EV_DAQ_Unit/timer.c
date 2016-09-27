@@ -10,12 +10,12 @@
 #include "timer.h"
 
 /* systck (Global) Definitions */
-uint32_t systck = 0;
-uint16_t systime_ms = 0;
-uint8_t systime_s = 0;
-uint8_t systime_m = 0;
-uint8_t systime_h = 0;
-uint16_t systime_d = 0;
+volatile uint32_t systck = 0;
+volatile uint16_t systime_ms = 0;
+volatile uint8_t systime_s = 0;
+volatile uint8_t systime_m = 0;
+volatile uint8_t systime_h = 0;
+volatile uint16_t systime_d = 0;
 
 ISR(TIMER1_COMPA_vect) {
     /* Increment systck global vars to keep system time */
@@ -51,4 +51,14 @@ void timer1_1ms_init(void) {
     TCCR1B |= (1<<WGM12) | TIMER1_PRESCALE_MASK;  // Set CTC, prescalar to clk(io)/64 (250 counts per 1ms)
     OCR1A = timer1_1ms_compare_value;    
     timer1_enable();
+}
+
+/*!
+* @brief Delay milliseconds
+* @param uint16_t delay_ms  Time to delay in milliseconds
+* @return void
+*/
+void delay(uint16_t delay_ms) {
+    uint32_t systck_1 = systck;
+    while(systck < (systck_1 + delay_ms));  // delay
 }
