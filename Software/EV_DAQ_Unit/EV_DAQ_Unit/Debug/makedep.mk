@@ -14,15 +14,11 @@ i2c.c
 
 lcd.c
 
-leds.c
-
 load_cell.c
 
 main.c
 
 print.c
-
-pushbuttons.c
 
 timer.c
 

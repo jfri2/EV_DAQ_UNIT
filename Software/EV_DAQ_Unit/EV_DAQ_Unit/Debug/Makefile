@@ -43,11 +43,9 @@ C_SRCS +=  \
 ../hall_effect.c \
 ../i2c.c \
 ../lcd.c \
-../leds.c \
 ../load_cell.c \
 ../main.c \
 ../print.c \
-../pushbuttons.c \
 ../timer.c \
 ../uart.c \
 ../wdt.c
@@ -66,11 +64,9 @@ gpio.o \
 hall_effect.o \
 i2c.o \
 lcd.o \
-leds.o \
 load_cell.o \
 main.o \
 print.o \
-pushbuttons.o \
 timer.o \
 uart.o \
 wdt.o
@@ -82,11 +78,9 @@ gpio.o \
 hall_effect.o \
 i2c.o \
 lcd.o \
-leds.o \
 load_cell.o \
 main.o \
 print.o \
-pushbuttons.o \
 timer.o \
 uart.o \
 wdt.o
@@ -98,11 +92,9 @@ gpio.d \
 hall_effect.d \
 i2c.d \
 lcd.d \
-leds.d \
 load_cell.d \
 main.d \
 print.d \
-pushbuttons.d \
 timer.d \
 uart.d \
 wdt.d
@@ -114,11 +106,9 @@ gpio.d \
 hall_effect.d \
 i2c.d \
 lcd.d \
-leds.d \
 load_cell.d \
 main.d \
 print.d \
-pushbuttons.d \
 timer.d \
 uart.d \
 wdt.d
@@ -137,10 +127,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-
-
-
-
 
 
 

@@ -190,14 +190,6 @@
       <SubType>compile</SubType>
       <Link>lcd.h</Link>
     </Compile>
-    <Compile Include="leds.c">
-      <SubType>compile</SubType>
-      <Link>leds.c</Link>
-    </Compile>
-    <Compile Include="leds.h">
-      <SubType>compile</SubType>
-      <Link>leds.h</Link>
-    </Compile>
     <Compile Include="load_cell.c">
       <SubType>compile</SubType>
       <Link>load_cell.c</Link>
@@ -216,14 +208,6 @@
     <Compile Include="print.h">
       <SubType>compile</SubType>
       <Link>print.h</Link>
-    </Compile>
-    <Compile Include="pushbuttons.c">
-      <SubType>compile</SubType>
-      <Link>pushbuttons.c</Link>
-    </Compile>
-    <Compile Include="pushbuttons.h">
-      <SubType>compile</SubType>
-      <Link>pushbuttons.h</Link>
     </Compile>
     <Compile Include="timer.c">
       <SubType>compile</SubType>

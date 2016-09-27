@@ -10,84 +10,64 @@
 #ifndef gpio_h__
 #define gpio_h__
 
-#include <avr/io.h>
-
-#if defined(PULLUP_ENABLE) || defined(PULLUP_DISABLE)
-#warning "PULLUP_ENABLE and PULLUP_DISABLE redefined"
-#endif
-
-#define PULLUP_DISABLE   0
-#define PULLUP_ENABLE    1
+#include "EV_DAQ_Unit.h"
 
 /*!
-* @brief Set bits in a Data Direction Register (DDR) to output
-* @param[in] reg_ddr   Data Direction Register to modify.
-* @param[in] bm_ddr    Bits to set as output in DDR (as a bitmask).
+* @brief Set bit in register
+* @param[in] reg        Register to modify
+* @param[in] bit        Bit position to set
 * @return void
 */
-static inline void ddr_output(uint8_t reg_ddr, uint8_t bm_ddr) {
-    reg_ddr |= bm_ddr;
-}
+#define sbit(reg, bit) ( reg |= (1<<bit) )
 
 /*!
-* @brief Set bits in a Data Direction Register (DDR) to input
-* @param[in] reg_ddr            Data Direction Register to modify.
-* @param[in] reg_port           Port for pullup resistors
-* @param[in] bm_ddr             Bits to set as input in DDR (as a bitmask).
-* @param[in] b_PullupEnable     Enables or disables pullups on input pin
+* @brief Set bits in register
+* @param[in] reg        Register to modify
+* @param[in] bm         Bitmask for register
 * @return void
 */
-static inline void ddr_input(uint8_t reg_ddr, uint8_t reg_port, uint8_t bm_ddr, uint8_t b_PullupEnable) {
-    reg_ddr &= ~bm_ddr;
-    if (b_PullupEnable != PULLUP_DISABLE) {
-        reg_port |= bm_ddr;
-        } else {
-        reg_port &= ~bm_ddr;
-    }
-}
+#define sbits(reg, bm) ( reg |= bm )
 
 /*!
-* @brief Set bits in a port to one (1)
-* @param[in] reg_port  Port to modify
-* @param[in] bm_set    Bits to set in port (as a bitmask).
+* @brief Clear bit in register
+* @param[in] reg        Register to modify
+* @param[in] bit        Bit position to clear
 * @return void
 */
-static inline void set_bits(uint8_t reg_port, uint8_t bm_set) {
-    reg_port |= bm_set;
-}
+#define clrbit(reg, bit) ( reg &= ~(1<<bit) )
 
 /*!
-* @brief Clear bits in a port to zero (0)
-* @param[in] reg_port  Port to modify
-* @param[in] bm_set    Bits to clear in port (as a bitmask).
+* @brief Clear bits in register
+* @param[in] reg        Register to modify
+* @param[in] bm         Bitmask for register
 * @return void
 */
-static inline void clear_bits(uint8_t reg_port, uint8_t bm_clear) {
-    reg_port &= ~bm_clear;
-}
+#define clrbits(reg, bm) ( reg &= ~bm )
 
 /*!
-* @brief Read PORTB pins
-* @return portValue Value of port read
+* @brief Toggle bit in register
+* @param[in] reg        Register to modify
+* @param[in] bit        Bit to toggle
+* @return void
 */
-static inline uint8_t read_port_b(void) {
-    return(PINB);
-}
+#define tbit(reg, bit) ( reg ^= (1<<bit) )
 
 /*!
-* @brief Read PORTC pins
-* @return uint8_t Value of PORTC
+* @brief Toggle bits in register
+* @param[in] reg        Register to modify
+* @param[in] bm         Bitmask for register
+* @return void
 */
-static inline uint8_t read_port_c(void) {
-    return(PINC);
-}
+#define tbits(reg, bm) ( reg ^= bm )
 
 /*!
-* @brief Read PORTD pins
-* @return uint8_t Value of PORTD
+* @brief Check bit in register
+* @param[in] reg        Register to check
+* @param[in] bit        Bit position to check
+* @return uint8_t       Return 0x00 if bit is not set, others if set
 */
-static inline uint8_t read_port_d(void) {
-    return(PIND);
-}
+#define chkbit(reg, bit) ( reg & (1<<bit) )
+
+void gpio_init(void);
 
 #endif // gpio_h__

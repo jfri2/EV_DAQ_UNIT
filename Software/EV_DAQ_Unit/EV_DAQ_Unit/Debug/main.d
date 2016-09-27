@@ -11,9 +11,9 @@ main.d main.o: .././main.c .././EV_DAQ_Unit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././data_utils.h .././data_types.h .././gpio.h .././i2c.h .././adc.h \
- .././uart.h .././timer.h .././lcd.h .././hall_effect.h \
- .././pushbuttons.h .././load_cell.h .././leds.h .././print.h \
+ .././data_utils.h .././data_types.h .././i2c.h .././adc.h .././uart.h \
+ .././gpio.h .././timer.h .././lcd.h .././hall_effect.h .././load_cell.h \
+ .././print.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
@@ -51,13 +51,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././data_types.h:
 
-.././gpio.h:
-
 .././i2c.h:
 
 .././adc.h:
 
 .././uart.h:
+
+.././gpio.h:
 
 .././timer.h:
 
@@ -65,11 +65,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././hall_effect.h:
 
-.././pushbuttons.h:
-
 .././load_cell.h:
-
-.././leds.h:
 
 .././print.h:
 
