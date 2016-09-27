@@ -32,7 +32,7 @@ ISR(TIMER1_COMPA_vect) {
                 systime_h++;
                 if(systime_h >= 24) {
                     systime_h = 0;
-                    systime_d++;                    
+                    systime_d++;
                 }
             }
         }        

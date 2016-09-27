@@ -32,6 +32,10 @@ void lcd_init();
 void lcd_stdio_assign();
 void lcd_set_line_1();
 void lcd_set_line_2();
+void lcd_test();
+
+// LCD Test String
+static uint8_t lcd_test_str[16] = {"EV DAQ UNIT     "};
 
 // TODO Add & define more LCD functions
 
