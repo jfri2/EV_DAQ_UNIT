@@ -39,15 +39,17 @@ uint8_t i2c1_tx(uint8_t i2c_event) {
     switch(i2c_event) {
         case I2C_START:
             TWCR1 = (1<<TWINT) | (1<<TWSTA) | (1<<TWEN);    // Tx start condition
+            while(!(TWCR1 & (1<<TWINT))); // Wait for current request to process            
             break;
         case I2C_DATA:
             TWCR1 = (1<<TWINT) | (1<<TWEN);                 // Tx data
+            while(!(TWCR1 & (1<<TWINT))); // Wait for current request to process
             break;
         case I2C_STOP:
             TWCR1 = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);    // Tx stop condition
+            while(!(TWCR1 & (1<<TWSTO))); // Wait for current request to process
             break;
     }
-    while (!(TWCR1 & (1 << TWINT))); // Wait for current request to process
     return(TWSR1 & I2C_STATUS_REG_MASK);     // Return only status bits in status reg
 }
 

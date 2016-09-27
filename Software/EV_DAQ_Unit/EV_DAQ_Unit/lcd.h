@@ -23,10 +23,9 @@
 #define LCD_CTRL_DW_LAST    0xC0        // LCD control byte data write operation mask (Last Control Byte Sent)
 
 // LCD Functions
-void lcd_init();
-void lcd_stdio_assign();
-void lcd_set_line_1();
-void lcd_set_line_2();
+void lcd_init();            // TODO
+void lcd_stdio_assign();    // TODO
+void lcd_write(uint8_t *data, uint16_t num_bytes);
 void lcd_test();
 
 // LCD Test String
