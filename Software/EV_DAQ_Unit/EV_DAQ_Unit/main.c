@@ -24,24 +24,25 @@ int main(void) {
     timer1_1ms_init();
     gpio_init();
     sei();
-    tbit(LED_PORT, LED_GRN);
+    tbit(LED_PORT, LED_YLW);
 
     while(1) {
         // Status LED blink
         delay(500);
-        tbits(LED_PORT, ((1<<LED_GRN)|(1<<LED_RED)));     
+        tbits(LED_PORT, ((1<<LED_YLW)|(1<<LED_RED)));     
          
         // Reset LCD & blink LEDs fast if a button is pressed
         if((chkbit(SW_PIN, SW1) == 0) || (chkbit(SW_PIN, SW2) == 0)) {
             clrbit(LCD_RST_PORT, LCD_RST);
             delay(100);
-            sbit(LCD_RST_PORT, LCD_RST);
+            sbits(LED_PORT, (LED_ALL));
             delay(100);
-            tbits(LED_PORT, ((1<<LED_GRN)|(1<<LED_RED)));
+            tbits(LED_PORT, (LED_ALL));
             delay(100);
-            tbits(LED_PORT, ((1<<LED_GRN)|(1<<LED_RED)));
+            tbits(LED_PORT, (LED_ALL));
             delay(100);
-            tbits(LED_PORT, ((1<<LED_GRN)|(1<<LED_RED)));
+            tbit(LED_PORT, (LED_YLW));                        
+            
          }
         // TODO Test & Everything else
         // TODO Add state machine for general program flow

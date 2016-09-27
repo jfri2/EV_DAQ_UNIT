@@ -19,7 +19,7 @@ void gpio_init(void) {
     sbits(SW_PORT, ((1<<SW1)|(1<<SW2)));  // Turn on pullups on switches
     
     /* Setup LEDs */
-    sbits(LED_DDR, ((1<<LED_RED)|(1<<LED_GRN)));  // LEDs as output
+    sbits(LED_DDR, ((1<<LED_RED)|(1<<LED_YLW)));  // LEDs as output
     
     /* Setup LCD /RST */
     sbit(LCD_RST_DDR, LCD_RST);     // Set LCD_RST to output

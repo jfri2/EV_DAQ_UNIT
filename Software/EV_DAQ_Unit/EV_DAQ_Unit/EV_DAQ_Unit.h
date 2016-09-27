@@ -22,7 +22,8 @@
 #define LED_DDR         DDRD
 #define LED_PORT        PORTD
 #define LED_RED         PORTD6
-#define LED_GRN         PORTD7
+#define LED_YLW         PORTD7
+#define LED_ALL         (1<<LED_RED)|(1<<LED_YLW)
 #define LCD_RST_DDR     DDRB
 #define LCD_RST_PORT    PORTB
 #define LCD_RST         PORTB2
