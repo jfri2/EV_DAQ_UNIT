@@ -11,6 +11,34 @@
 #include <util/delay.h>
 
 /*!
+* @brief Write to LCD
+* @param uint8_t cmd_data       0 to send command, others to send data
+* @param uint8_t *data          Pointer to data array to send.
+* @param uint16_t num_bytes     Length of data to send.
+* @return void
+*/
+void lcd_write(uint8_t cmd_data, uint8_t *data, uint16_t num_bytes) {
+    i2c1_tx(I2C_START);     // Send start condition
+    TWDR1 = LCD_I2C_ADDR;   // Set Slave Addr
+    i2c1_tx(I2C_DATA);      // Send Slave Addr
+    
+    if(cmd_data == LCD_CMD) {
+        TWDR1 = LCD_CMD;    // Load "Command" byte for LCD
+        i2c1_tx(I2C_DATA);  // Send "Command" byte
+    } else {
+        TWDR1 = LCD_DATA;   // Load "Data" byte for LCD
+        i2c1_tx(I2C_DATA);  // Send "Data" byte
+    }
+    
+    for(uint16_t i=0; i<num_bytes; i++) {   // Send bytes
+        TWDR1 = data[i];
+        i2c1_tx(I2C_DATA);
+    }
+    
+    i2c1_tx(I2C_STOP);  // Send stop condition
+}
+
+/*!
 * @brief Initialize LCD
 * @return void
 */
@@ -32,29 +60,37 @@ void lcd_init(void) {
 }
 
 /*!
-* @brief Write to LCD
-* @param uint8_t *data          Pointer to data array to send.
-* @param uint16_t num_bytes     Length of data to send.
-* @return void
-*/
-void lcd_write(uint8_t *data, uint16_t num_bytes) {        
-    i2c1_tx(I2C_START);     // Send start condition
-    TWDR1 = LCD_I2C_ADDR;   // Set Slave Addr
-    i2c1_tx(I2C_DATA);      // Send Slave Addr
-    
-    for(uint16_t i=0; i<num_bytes; i++) {   // Send data bytes
-        TWDR1 = data[i];
-        i2c1_tx(I2C_DATA);
-    }
-    
-    i2c1_tx(I2C_STOP);  // Send stop condition    
-}
-
-/*!
-* @brief Test LCD
+* @brief Test LCD (custom test)
 * @return void
 */
 void lcd_test(void) {
+    uint8_t lcd_config_1[1] = {0x38};
+    uint8_t lcd_config_2[1] = {0x39};
+    uint8_t lcd_config_3[7] = {0x14, 0x78, 0x5E, 0x6D, 0x0C, 0x01, 0x06};
+    uint8_t lcd_config_4[1] = {0b01110000};
+    uint8_t lcd_config_5[2] = {0x39, 0x01};
+                                
+    uint8_t lcd_test_str[11] = "Hello World";
+    
+    lcd_write(LCD_CMD, lcd_config_1, 1);
+    delay(10);
+    lcd_write(LCD_CMD, lcd_config_2, 1);
+    delay(10);
+    lcd_write(LCD_CMD, lcd_config_3, 7);
+    delay(10);
+    lcd_write(LCD_CMD, lcd_config_4, 1);
+    delay(10);
+    lcd_write(LCD_CMD, lcd_config_5, 2);
+    delay(10);    
+    lcd_write(LCD_DATA, lcd_test_str, 11);
+}
+
+
+/*!
+* @brief Test LCD (manufacturer test)
+* @return void
+*/
+void lcd_test_mfg(void) {
     /* Initialization Routine */
     i2c1_tx(I2C_START);    
     /* First few bytes to send */
