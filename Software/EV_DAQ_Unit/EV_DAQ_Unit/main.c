@@ -7,23 +7,27 @@
 #include "EV_DAQ_Unit.h"
 
 #define PRINT_PROJECT_HEADER(interface) { fprintf(interface, "\n==============================================");\
-                                          fprintf(interface, "\n                   DEBUG BUILD                ");\
+                                          fprintf(interface, "\n    ELECTRIC VEHICLE DATA ACQUISITION UNIT    ");\
                                           fprintf(interface, "\n                                              ");\
-                                          fprintf(interface, "\n----ELECTRIC VEHICLE DATA ACQUISITION UNIT----");\
-                                          fprintf(interface, "\n                                              ");\
+                                          fprintf(interface, "\n                  Version 0.1                 ");\
                                           fprintf(interface, "\n    COPYRIGHT NOTICE: (c) 2016 John Fritz     ");\
+                                          fprintf(interface, "\n               github.com/jfri2               ");\
                                           fprintf(interface, "\n==============================================\n"); }
                                 
 #define PRINT_SYSTIME(interface)        { fprintf(interface, "\n%d %02d:%02d:%02d:%03d    ", systime_d, systime_h, systime_m, systime_s, systime_ms); }
 
-uint16_t lc_adc_val = 0;
-uint8_t lcd_temp[] = { 0x40, 0x46, 0x72, 0x69, 0x74, 0x7a }; // Sets line 1, Print "FRITZ"
+uint16_t adc_val = 0;
+uint8_t adc_str[16];
+volatile uint32_t systck_tmp = 0;
+volatile uint16_t adc_ms = 0;
+uint8_t time_str[16];
 
 int main(void) {
     /* Initialization Routines */
     sei();
-    gpio_init();
     timer1_1ms_init();
+    gpio_init();
+    adc_init(ADC_DIG_DIS_LC, ADC_DIV_16);
     i2c1_init(F_CPU, I2C_SCL_FREQ);
     lcd_init();
     tbit(LED_PORT, LED_YLW);
@@ -39,11 +43,25 @@ int main(void) {
             delay(100);
         }
         
-        // Blink LEDs faster while SW1 is pressed
-        while((chkbit(SW_PIN, SW1) == 0)) {
-            tbits(LED_PORT, (LED_ALL));
-            delay(50);
-        }        
+        // Read temperature sensor on ADC and display values on SW1 activation
+        if((chkbit(SW_PIN, SW1) == 0)) {
+            
+            /* Get values to display on screen */
+            systck_tmp = systck;   // Store current systck value
+            adc_val = lc_get(ADC_MUX_1V1);    // Read 1.1Vref
+            adc_ms = ((uint16_t)(systck - systck_tmp));  // Save time (in milliseconds) it took to do A/D conversion
+                    
+            /* Format to ASCII strings */
+            sprintf(adc_str,  "ADC:  %04d", adc_val);
+            sprintf(time_str, "Time: %04d ms", adc_ms);
+                    
+            /* Print ADC & time values on screen */
+            lcd_clear();
+            lcd_set_line1();
+            lcd_write(LCD_DATA, adc_str, 16);
+            lcd_set_line2();
+            lcd_write(LCD_DATA, time_str, 16);
+        }           
                  
         // TODO Test & Everything else
         // TODO Add state machine for general program flow

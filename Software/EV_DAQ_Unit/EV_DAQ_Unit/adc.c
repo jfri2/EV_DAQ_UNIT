@@ -8,6 +8,7 @@
 */
 
 #include "adc.h"
+#include "timer.h"
 
 /*!
 * @brief Initialize (enable) ADC with prescalar

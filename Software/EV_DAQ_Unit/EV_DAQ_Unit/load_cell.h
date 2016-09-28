@@ -17,8 +17,8 @@
 #define ADC_DIG_DIS_LC  ((1<<ADC6D) | (1<<ADC7D))
 #define LC_ADC_8K       ADC_MUX_ADC6
 #define LC_ADC_40       ADC_MUX_ADC7
-#define LC_RAW_LEN      20      // Length of "raw" array (outliers included)
-#define LC_TRIM_LEN     16      // Length of "trimmed" array (outliers excluded), must be power of 2
+#define LC_RAW_LEN      300      // Length of "raw" array (outliers included)
+#define LC_TRIM_LEN     256      // Length of "trimmed" array (outliers excluded), must be power of 2
 #define LC_TRIM_VAL     ((LC_RAW_LEN - LC_TRIM_LEN) / 2)    // Values to trim from start and end of array
 
 // Macros & Functions
