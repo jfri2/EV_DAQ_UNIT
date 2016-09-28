@@ -39,39 +39,45 @@ void lcd_write(uint8_t cmd_data, uint8_t *data, uint16_t num_bytes) {
 }
 
 /*!
-* @brief Initialize LCD
+* @brief Set cursor to LCD line 1
 * @return void
 */
-void lcd_init(void) {
-    // This function isn't quite right, needs updating once hardware is in
-        
-    uint8_t lcd_config_1[2] = {0x00, 0x38};
-    uint8_t lcd_config_2[1] = {0x39};
-    uint8_t lcd_config_3[7] = {0x14, 0x78, 0x5E, 0x6D, 0x0C, 0x01, 0x06};
-        
-    i2c1_write(LCD_I2C_ADDR, lcd_config_1, 2);  // Write first commands
-    delay(10);
-    
-    i2c1_write(LCD_I2C_ADDR, lcd_config_2, 1);  // Write second commands
-    delay(10);
-    
-    i2c1_write(LCD_I2C_ADDR, lcd_config_3, 7);  // Write third commands
+void lcd_set_line1() {
+    uint8_t lcd_line1[1] = {LCD_LINE1};
+        lcd_write(LCD_CMD, lcd_line1, 1);
+        delay(10);
+}
+
+/*!
+* @brief Set cursor to LCD line 2
+* @return void
+*/
+void lcd_set_line2() {
+    uint8_t lcd_line2[1] = {LCD_LINE2};
+    lcd_write(LCD_CMD, lcd_line2, 1);
     delay(10);
 }
 
 /*!
-* @brief Test LCD (custom test)
+* @brief Initialize LCD
 * @return void
 */
-void lcd_test(void) {
+void lcd_init(void) {
     uint8_t lcd_config_1[1] = {0x38};
     uint8_t lcd_config_2[1] = {0x39};
     uint8_t lcd_config_3[7] = {0x14, 0x78, 0x5E, 0x6D, 0x0C, 0x01, 0x06};
-    uint8_t lcd_config_4[1] = {0b01110000};
-    uint8_t lcd_config_5[2] = {0x39, 0x01};
+    uint8_t lcd_config_4[1] = {0x70};     // Set contrast 
                                 
-    uint8_t lcd_test_str[11] = "Hello World";
+    uint8_t lcd_init_str1[16] = "EV DAQ UNIT v0.1";
+    uint8_t lcd_init_str2[16] = "github.com/jfri2";
     
+    /* Reset LCD */
+    clrbit(LCD_RST_PORT, LCD_RST);
+    delay(10);
+    sbit(LCD_RST_PORT, LCD_RST);
+    delay(10);
+    
+    /* Write Configuration to LCD */
     lcd_write(LCD_CMD, lcd_config_1, 1);
     delay(10);
     lcd_write(LCD_CMD, lcd_config_2, 1);
@@ -79,128 +85,13 @@ void lcd_test(void) {
     lcd_write(LCD_CMD, lcd_config_3, 7);
     delay(10);
     lcd_write(LCD_CMD, lcd_config_4, 1);
-    delay(10);
-    lcd_write(LCD_CMD, lcd_config_5, 2);
     delay(10);    
-    lcd_write(LCD_DATA, lcd_test_str, 11);
+    
+    /* Display Initial Message */
+    //lcd_set_line1();
+    lcd_write(LCD_DATA, lcd_init_str1, 16);
+    lcd_set_line2();
+    lcd_write(LCD_DATA, lcd_init_str2, 16);
 }
 
-
-/*!
-* @brief Test LCD (manufacturer test)
-* @return void
-*/
-void lcd_test_mfg(void) {
-    /* Initialization Routine */
-    i2c1_tx(I2C_START);    
-    /* First few bytes to send */
-    TWDR1 = 0x7C; // Slave Addr
-    i2c1_tx(I2C_DATA);    
-    TWDR1 = 0x00; // Comsend
-    i2c1_tx(I2C_DATA);    
-    TWDR1 = 0x38;
-    i2c1_tx(I2C_DATA);    
-    delay(10);    
-    /* Next byte to send */
-    TWDR1 = 0x39;
-    i2c1_tx(I2C_DATA);    
-    delay(10);    
-    /* Last few bytes of initialization data */
-    TWDR1 = 0x14;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x78;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x5E;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x6D;
-    i2c1_tx(I2C_DATA);  // This command changed the screen
-    TWDR1 = 0x0C;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x01;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x06;
-    i2c1_tx(I2C_DATA);
-    delay(10);    
-    i2c1_tx(I2C_STOP);  // Issue with sending the stop condition (waiting on ACK)
-    
-    delay(100);
-    
-//     /* CGRAM? */
-//     i2c1_tx(I2C_START);
-//     delay(10);
-//     TWDR1 = 0x7C; // Slave Addr
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x00; // Comsend
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x38;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x40;
-//     i2c1_tx(I2C_STOP);
-//     delay(10);    
-//     i2c1_tx(I2C_START);
-//     delay(10);
-//     TWDR1 = 0x7C; // Slave Addr
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x00; // Comsend
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x00;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x1E;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x18;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x14;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x12;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x01;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x00;
-//     i2c1_tx(I2C_DATA);
-//     TWDR1 = 0x00;   
-//     i2c1_tx(I2C_STOP);
-//     delay(10);        
-    
-    /* Set cursor back home */
-    i2c1_tx(I2C_START);    
-    delay(10);
-    TWDR1 = 0x7C; // Slave Addr
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x00; // Comsend
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x39;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x01;
-    i2c1_tx(I2C_DATA);    
-    i2c1_tx(I2C_STOP);
-    delay(10);
-    
-    /* Display test string */
-    i2c1_tx(I2C_START);
-    
-    delay(10);
-    TWDR1 = 0x7C; // Slave Addr
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x00; // Comsend
-    i2c1_tx(I2C_DATA);    
-
-    TWDR1 = 0x46;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x20;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x55;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x20;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x43;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x20;
-    i2c1_tx(I2C_DATA);
-    TWDR1 = 0x4b;
-    i2c1_tx(I2C_DATA);
-
-
-    i2c1_tx(I2C_STOP);
-    delay(10);   
-}
 
