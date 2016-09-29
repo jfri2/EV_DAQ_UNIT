@@ -14,15 +14,13 @@
 * @brief Initialize (enable) ADC with prescalar
 * @param[in] adc_dig_disable  Digital input disable mask. ADC7=Bit7, ADC0=Bit0
 * @param[in] adc_div          ADC prescalar (clock divider)
+* @param[in] adc_ref          ADC reference selection
 * @return void
 */
-void adc_init(uint8_t adc_dig_disable, uint8_t adc_div) {
-    DIDR0 = adc_dig_disable;    // Disable digital input buffer (saves power and causes PIN to always read 0)
-    if(adc_div > ADC_DIV_128) {
-        adc_div = ADC_DIV_128;    // Handle invalid prescalars by forcing to 128 division 
-    }   
-         
-    ADCSRA = ((1<<ADEN) | (adc_div));   // Enable ADC and set proper prescale
+void adc_init(uint8_t adc_dig_disable, uint8_t adc_div, uint8_t adc_ref) {
+    DIDR0 = adc_dig_disable;    // Disable digital input buffer (saves power and causes PIN to always read 0)         
+    ADMUX |= (adc_ref & 0b11000000);    // Set analog reference source
+    ADCSRA = ((1<<ADEN) | (adc_div & 0b00000111));   // Enable ADC and set proper prescale
 }
 
 /*!
@@ -35,7 +33,7 @@ uint16_t adc_read_one(uint8_t adc_mux) {
     static uint8_t adc_last_adcmux;     // Holds adc_mux value from previous function call
     
     if(adc_last_adcmux != adc_mux) {    // Check if sequential function calls use same ADC channel
-        ADMUX = adc_mux;    // Set new ADMUX value
+        ADMUX |= adc_mux;    // Set new ADMUX value
         for(uint8_t i=0; i < ADC_BAD_CONVERSIONS; i++) {
             /* Throw out first few conversions */
             ADCSRA |= (1<<ADSC);    // start ADC conversion.
@@ -45,8 +43,7 @@ uint16_t adc_read_one(uint8_t adc_mux) {
     
     ADCSRA |= (1<<ADSC);   // Start ADC conversion
     while(ADCSRA & (1<<ADSC));  // Wait until conversion is complete (13 adc clock cycles)
-    adc_val = ADCL;         // Read & store lower byte of adc result
-    adc_val = (ADCH<<8);    // Read & store upper two bits of adc result
+    adc_val = ADC;         // Read & store adc result
     
     return(adc_val);
 }

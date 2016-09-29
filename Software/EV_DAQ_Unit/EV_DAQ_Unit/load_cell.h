@@ -14,7 +14,7 @@
 // Load Cell Definitions
 #define ADC6D           6
 #define ADC7D           7
-#define ADC_DIG_DIS_LC  ((1<<ADC6D) | (1<<ADC7D))
+#define ADC_DIG_DIS_LC  (0xFF)  // Disable digital inputs for all inputs
 #define LC_ADC_8K       ADC_MUX_ADC6
 #define LC_ADC_40       ADC_MUX_ADC7
 #define LC_RAW_LEN      300      // Length of "raw" array (outliers included)

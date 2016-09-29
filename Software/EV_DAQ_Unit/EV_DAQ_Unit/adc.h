@@ -12,8 +12,8 @@
 #include <avr/io.h>
 
 #define ADC_REF_AREF            0x00
-#define ADC_REF_AVCC            0x01
-#define ADC_REV_1V1             0x03
+#define ADC_REF_AVCC            0x40
+#define ADC_REF_1V1             0x60
 
 #define ADC_MUX_ADC0            0x00
 #define ADC_MUX_ADC1            0x01
@@ -37,7 +37,7 @@
 
 #define ADC_BAD_CONVERSIONS     0x03    // Number of ADC conversions to throw out after switching ADC mux values   
 
-void adc_init(uint8_t adc_dig_disable, uint8_t adc_div);
+void adc_init(uint8_t adc_dig_disable, uint8_t adc_div, uint8_t adc_ref);
 uint16_t adc_read_one(uint8_t adc_mux);
 void adc_read(uint8_t adc_mux, uint16_t *adc_val, uint16_t adc_val_len);
 

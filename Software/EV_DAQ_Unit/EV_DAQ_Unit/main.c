@@ -27,7 +27,7 @@ int main(void) {
     sei();
     timer1_1ms_init();
     gpio_init();
-    adc_init(ADC_DIG_DIS_LC, ADC_DIV_16);
+    adc_init(ADC_DIG_DIS_LC, ADC_DIV_128, ADC_REF_AREF);  // Currently disables all digital i/o on all ADC pins, set external 3V reference
     i2c1_init(F_CPU, I2C_SCL_FREQ);
     lcd_init();
     tbit(LED_PORT, LED_YLW);
@@ -48,7 +48,8 @@ int main(void) {
             
             /* Get values to display on screen */
             systck_tmp = systck;   // Store current systck value
-            adc_val = lc_get(ADC_MUX_1V1);    // Read 1.1Vref
+            adc_val = lc_get(ADC_MUX_ADC7);    // Read 40 Hz output from analog front end
+            //adc_val = adc_read_one(ADC_MUX_ADC7);
             adc_ms = ((uint16_t)(systck - systck_tmp));  // Save time (in milliseconds) it took to do A/D conversion
                     
             /* Format to ASCII strings */
