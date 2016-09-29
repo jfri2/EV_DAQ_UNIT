@@ -45,7 +45,7 @@ void lcd_write(uint8_t cmd_data, uint8_t *data, uint16_t num_bytes) {
 void lcd_set_line1() {
     uint8_t lcd_line1[1] = {LCD_LINE1};
         lcd_write(LCD_CMD, lcd_line1, 1);
-        delay(100);
+        delay(10);
 }
 
 /*!
@@ -55,7 +55,7 @@ void lcd_set_line1() {
 void lcd_set_line2() {
     uint8_t lcd_line2[1] = {LCD_LINE2};
     lcd_write(LCD_CMD, lcd_line2, 1);
-    delay(100);
+    delay(10);
 }
 
 /*!

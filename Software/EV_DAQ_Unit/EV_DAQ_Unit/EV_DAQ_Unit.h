@@ -11,7 +11,7 @@
 
 /* Clock Definitions */
 #define F_CPU           16000000
-#define I2C_SCL_FREQ    100000
+#define I2C_SCL_FREQ    200000
 
 /* GPIO Definitions */
 #define SW_DDR          DDRB
