@@ -71,7 +71,7 @@ int main(void) {
         /* Print Force & time values on screen @ one second intervals */            
         if(systck >= (systime_1 + 1000)) {                                
             /* Format to ASCII strings */
-            sprintf(adc_str, "Force: %6d mN", milliforce);      // Display Force (milliNewtons)
+            sprintf(adc_str, "Force: %6u mN", milliforce);      // Display Force (milliNewtons)
             sprintf(time_str, "Time:   %02d:%02d:%02d", systime_h, systime_m, systime_s);   // Display time since last reset (hh:mm:ss)
                         
             tbit(LED_PORT, LED_YLW);        // Toggle Yellow status LED every screen refresh
